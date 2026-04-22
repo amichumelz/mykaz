@@ -1,0 +1,2212 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MYKAZ SOLUTIONS | Langkawi Tour and Transfer</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@1,500;1,600&display=swap");
+
+    :root {
+      --blue: #0b5ea6;
+      --blue-dark: #083d6b;
+      --green: #118a68;
+      --green-dark: #0c6f53;
+      --glass: rgba(255, 255, 255, 0.72);
+      --soft: #f6f7f2;
+      --text: #1a1c1e;
+      --muted: #6f7378;
+      --card: #ffffff;
+      --border: #e7e7e7;
+      --shadow: 0 14px 30px rgba(8, 61, 107, 0.13);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Montserrat", Arial, Helvetica, sans-serif;
+      background: radial-gradient(circle at 20% -10%, #eaf4ff 0%, #ffffff 34%),
+        radial-gradient(circle at 100% 0%, #eafcf6 0%, #ffffff 28%);
+      color: var(--text);
+      line-height: 1.45;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: min(1180px, 93%);
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: clamp(54px, 6vw, 86px) 0;
+    }
+
+    .section.soft {
+      background: var(--soft);
+    }
+
+    .script {
+      font-family: "Playfair Display", Georgia, serif;
+      font-style: italic;
+      color: var(--green);
+      font-size: 2rem;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    h2.title {
+      font-size: clamp(2.2rem, 3.8vw, 4.3rem);
+      line-height: 1.02;
+      letter-spacing: -0.02em;
+      margin-bottom: 18px;
+    }
+
+    .sub {
+      color: var(--muted);
+      max-width: 700px;
+    }
+
+    header {
+      background: var(--glass);
+      border-bottom: 1px solid rgba(13, 60, 102, 0.08);
+      backdrop-filter: saturate(160%) blur(14px);
+      position: sticky;
+      top: 0;
+      z-index: 40;
+    }
+
+    .topnav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 84px;
+      gap: 16px;
+      padding: 8px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+      overflow: visible;
+    }
+
+    .brand img {
+      width: 120px;
+      height: auto;
+      max-height: none;
+      border-radius: 0 !important;
+      border: 0 !important;
+      clip-path: none !important;
+      mask-image: none !important;
+      display: block;
+      object-fit: unset;
+      background: transparent;
+      transform: translateY(8px);
+    }
+
+    .brand-text {
+      display: grid;
+      line-height: 1.08;
+    }
+
+    .brand-text strong {
+      font-size: 1.05rem;
+      letter-spacing: 0.6px;
+      color: var(--blue-dark);
+    }
+
+    .brand-text span {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--green-dark);
+      letter-spacing: 0.5px;
+      text-transform: lowercase;
+    }
+
+    nav {
+      margin-left: auto;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 6px;
+      border: 1px solid rgba(9, 67, 112, 0.12);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 10px 28px rgba(6, 41, 72, 0.08);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #30363b;
+      font-size: 0.9rem;
+      font-weight: 700;
+      padding: 9px 13px;
+      border-radius: 999px;
+      transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--blue);
+      background: rgba(11, 94, 166, 0.1);
+      transform: translateY(-1px);
+    }
+
+    nav a:active {
+      transform: translateY(0);
+    }
+
+    .hero {
+      min-height: 82vh;
+      background:
+        linear-gradient(95deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.78) 45%, rgba(255,255,255,0.30) 70%),
+        url("https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1900&q=80") center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 60px 0 120px;
+      animation: heroZoom 18s ease-in-out infinite alternate;
+    }
+
+    .hero-wrap {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 22px;
+      align-items: center;
+    }
+
+    .hero p {
+      color: #394046;
+      margin-bottom: 24px;
+      max-width: 520px;
+      font-size: 1.12rem;
+    }
+
+    .hero .title {
+      font-size: clamp(2.5rem, 5.4vw, 5.3rem);
+      margin-bottom: 14px;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 999px;
+      padding: 13px 34px;
+      font-weight: 800;
+      text-decoration: none;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .btn-main {
+      color: #fff;
+      background: linear-gradient(120deg, var(--blue), var(--green));
+      box-shadow: 0 10px 24px rgba(17, 138, 104, 0.24);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-main::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(115deg, transparent 20%, rgba(255,255,255,0.32) 50%, transparent 80%);
+      transform: translateX(-120%);
+      transition: transform 0.65s ease;
+    }
+
+    .btn-main:hover::after {
+      transform: translateX(120%);
+    }
+
+    .btn-main:hover {
+      transform: translateY(-2px) scale(1.01);
+      box-shadow: 0 16px 30px rgba(11, 94, 166, 0.35);
+      filter: saturate(1.1);
+    }
+
+    .polaroids {
+      position: relative;
+      min-height: 420px;
+    }
+
+    .polaroid {
+      position: absolute;
+      border: 10px solid #fff;
+      box-shadow: var(--shadow);
+      border-radius: 8px;
+      width: 220px;
+      height: 280px;
+      object-fit: cover;
+      transition: transform 0.85s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.55s ease, box-shadow 0.35s ease;
+    }
+
+    .p1 { top: 18px; left: 6%; transform: rotate(-8deg); }
+    .p2 { top: 0; left: 34%; transform: rotate(6deg); }
+    .p3 { top: 118px; left: 23%; transform: rotate(-2deg); }
+    .p4 { top: 140px; left: 54%; transform: rotate(10deg); }
+
+    .polaroids:hover .p1 { transform: rotate(-10deg) translateY(-6px); }
+    .polaroids:hover .p2 { transform: rotate(8deg) translateY(-9px); }
+    .polaroids:hover .p3 { transform: rotate(-1deg) translateY(-8px); }
+    .polaroids:hover .p4 { transform: rotate(12deg) translateY(-6px); }
+
+    .polaroids.is-scattered .p1 {
+      transform: translate(-220px, -180px) rotate(-26deg) scale(0.88);
+      opacity: 0;
+    }
+
+    .polaroids.is-scattered .p2 {
+      transform: translate(230px, -210px) rotate(24deg) scale(0.86);
+      opacity: 0;
+    }
+
+    .polaroids.is-scattered .p3 {
+      transform: translate(-260px, 210px) rotate(-32deg) scale(0.84);
+      opacity: 0;
+    }
+
+    .polaroids.is-scattered .p4 {
+      transform: translate(260px, 220px) rotate(30deg) scale(0.84);
+      opacity: 0;
+    }
+
+    .offers-grid,
+    .tour-grid,
+    .review-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .offers-grid {
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 26px;
+    }
+
+    .offer {
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      min-height: 240px;
+      box-shadow: var(--shadow);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .offer::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, rgba(3, 18, 31, 0.08) 20%, rgba(3, 18, 31, 0.72) 100%);
+      z-index: 1;
+    }
+
+    .offer img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.55s ease;
+    }
+
+    .offer:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 18px 36px rgba(8, 61, 107, 0.2);
+    }
+
+    .offer:hover img {
+      transform: scale(1.07);
+    }
+
+    .badge {
+      position: absolute;
+      left: 16px;
+      top: 16px;
+      background: linear-gradient(120deg, var(--blue), var(--green));
+      color: #fff;
+      font-weight: 800;
+      padding: 8px 14px;
+      border-radius: 10px;
+      z-index: 2;
+      font-size: 0.84rem;
+      letter-spacing: 0.2px;
+    }
+
+    .offer-content {
+      position: absolute;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      color: #fff;
+      z-index: 2;
+    }
+
+    .offer-content h4 {
+      font-size: 1.14rem;
+      margin-bottom: 6px;
+    }
+
+    .offer-content p {
+      font-size: 0.9rem;
+      opacity: 0.92;
+      margin-bottom: 10px;
+      max-width: 90%;
+    }
+
+    .offer-link {
+      border: 0;
+      background: rgba(255, 255, 255, 0.14);
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 700;
+      backdrop-filter: blur(5px);
+      font-size: 0.85rem;
+    }
+
+    .subscribe-wrap {
+      margin-top: 36px;
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      align-items: center;
+      gap: 24px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px;
+    }
+
+    .subscribe-art {
+      min-height: 210px;
+      border-radius: 12px;
+      background: linear-gradient(130deg, #d7f4ea, #d8eaf9);
+      display: grid;
+      place-items: center;
+      color: var(--blue-dark);
+      font-size: 3.3rem;
+    }
+
+    .subscribe h3 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .subscribe p {
+      color: var(--muted);
+      margin-bottom: 12px;
+      max-width: 500px;
+    }
+
+    .subscribe input {
+      width: 100%;
+      border: 0;
+      border-bottom: 2px solid #c6c6c6;
+      padding: 10px 2px;
+      margin-bottom: 14px;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    .tour-grid {
+      margin-top: 24px;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .tour-card {
+      background: var(--card);
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      box-shadow: 0 12px 24px rgba(10, 62, 90, 0.09);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .tour-card img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+      transition: transform 0.45s ease;
+    }
+
+    .tour-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 34px rgba(10, 62, 90, 0.17);
+    }
+
+    .tour-card:hover img {
+      transform: scale(1.06);
+    }
+
+    .tour-body {
+      padding: 14px;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 0.86rem;
+      margin-bottom: 8px;
+    }
+
+    .tour-body h4 {
+      font-size: 1.03rem;
+      min-height: 84px;
+      margin-bottom: 10px;
+    }
+
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 800;
+      gap: 10px;
+    }
+
+    .price {
+      color: var(--green-dark);
+      font-size: 1.3rem;
+    }
+
+    .link-btn {
+      border: 0;
+      background: transparent;
+      color: var(--blue-dark);
+      font-weight: 800;
+      cursor: pointer;
+      font-size: 0.92rem;
+    }
+
+    .link-btn:hover {
+      color: var(--green-dark);
+    }
+
+    .dest-flex {
+      display: grid;
+      grid-template-columns: 0.95fr 1.4fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .video-section {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .video-section .video-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+    }
+
+    .video-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(5, 29, 46, 0.58), rgba(7, 69, 54, 0.42));
+      z-index: -1;
+    }
+
+    .video-section .script,
+    .video-section .title,
+    .video-section .sub,
+    .video-section .dest-links button,
+    .video-section .dest-card span {
+      color: #ffffff;
+      text-shadow: 0 4px 12px rgba(0, 0, 0, 0.28);
+    }
+
+    .video-section .dest-links button:hover {
+      color: #d1fae5;
+    }
+
+    .dest-links {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 16px;
+      font-weight: 700;
+      color: #2f3438;
+    }
+
+    .dest-links button {
+      border: 0;
+      background: transparent;
+      text-align: left;
+      font: inherit;
+      color: inherit;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .dest-links button:hover {
+      color: var(--green-dark);
+    }
+
+    .dest-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .dest-card {
+      height: 320px;
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: var(--shadow);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .dest-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.55s ease;
+    }
+
+    .dest-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 18px 36px rgba(8, 61, 107, 0.22);
+    }
+
+    .dest-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .dest-card span {
+      position: absolute;
+      left: 14px;
+      bottom: 14px;
+      color: #fff;
+      font-size: 1.55rem;
+      font-weight: 800;
+      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.55);
+    }
+
+    .types-row {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 18px;
+      text-align: center;
+    }
+
+    .type-item {
+      padding: 16px 6px;
+    }
+
+    .type-item .icon {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .type-item p {
+      font-weight: 700;
+    }
+
+    .review-shell {
+      margin-top: 24px;
+      border: 1px solid #eceff4;
+      border-radius: 18px;
+      background: #fff;
+      padding: 18px;
+      box-shadow: 0 14px 28px rgba(11, 49, 84, 0.08);
+    }
+
+    .carousel-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      gap: 10px;
+    }
+
+    .carousel-head h3 {
+      font-size: 1.05rem;
+      color: #1d2630;
+    }
+
+    .carousel-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .carousel-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1px solid #d6deea;
+      background: #fff;
+      cursor: pointer;
+      font-weight: 800;
+      color: #274155;
+      line-height: 1;
+    }
+
+    .carousel-btn.primary {
+      background: linear-gradient(120deg, var(--blue), var(--green));
+      color: #fff;
+      border-color: transparent;
+    }
+
+    .review-track-wrap {
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    .review-track {
+      display: flex;
+      gap: 12px;
+      transition: transform 0.5s ease;
+      will-change: transform;
+    }
+
+    .review-card {
+      min-width: calc((100% - 24px) / 3);
+      background: #fff;
+      border: 1px solid #e9edf3;
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .review-stars {
+      color: #f4b400;
+      margin-bottom: 8px;
+      font-size: 0.86rem;
+      letter-spacing: 1px;
+    }
+
+    .review-card p {
+      font-size: 0.84rem;
+      color: #555f69;
+      min-height: 66px;
+      margin-bottom: 12px;
+    }
+
+    .review-user {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      color: #3a4754;
+      font-weight: 700;
+    }
+
+    .review-user img {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .gallery-shell {
+      margin-top: 20px;
+      border: 1px solid #eceff4;
+      border-radius: 18px;
+      background: #fff;
+      padding: 18px;
+      box-shadow: 0 14px 28px rgba(11, 49, 84, 0.08);
+    }
+
+    .gallery-track-wrap {
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    .gallery-track {
+      display: flex;
+      gap: 12px;
+      transition: transform 0.5s ease;
+      will-change: transform;
+    }
+
+    .gallery-item {
+      min-width: calc((100% - 36px) / 4);
+      height: 160px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #e5ebf2;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .carousel-dots {
+      margin-top: 12px;
+      display: flex;
+      justify-content: center;
+      gap: 7px;
+    }
+
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: 0;
+      background: #c8d4df;
+      cursor: pointer;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+      padding: 0;
+    }
+
+    .carousel-dot.is-active {
+      background: linear-gradient(120deg, var(--blue), var(--green));
+      transform: scale(1.28);
+    }
+
+    .booking-wrap {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+      margin-top: 26px;
+    }
+
+    .booking-form {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .booking-form input,
+    .booking-form select,
+    .booking-form textarea {
+      border: 1px solid #d6dde2;
+      border-radius: 10px;
+      padding: 11px 12px;
+      font: inherit;
+      width: 100%;
+    }
+
+    .booking-form textarea {
+      min-height: 96px;
+      resize: vertical;
+      grid-column: 1 / -1;
+    }
+
+    .booking-actions {
+      grid-column: 1 / -1;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .package-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(6, 18, 30, 0.62);
+      backdrop-filter: blur(4px);
+      z-index: 120;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+    }
+
+    .package-modal.is-open {
+      display: flex;
+    }
+
+    .modal-card {
+      width: min(760px, 100%);
+      background: #fff;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      box-shadow: 0 24px 48px rgba(9, 30, 49, 0.28);
+      overflow: hidden;
+      animation: modalIn 0.22s ease;
+      max-height: min(92vh, 880px);
+      overflow-y: auto;
+    }
+
+    .modal-cover {
+      height: 180px;
+      background: linear-gradient(120deg, rgba(11,94,166,0.62), rgba(17,138,104,0.55)),
+        url("https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=1200&q=80") center/cover no-repeat;
+    }
+
+    .modal-head {
+      padding: 16px 18px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 14px;
+    }
+
+    .modal-head h3 {
+      font-size: 1.25rem;
+      margin-bottom: 6px;
+    }
+
+    .modal-head p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .modal-badges {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      background: #eef5fb;
+      color: #155587;
+    }
+
+    .modal-close {
+      border: 0;
+      background: #eef5fb;
+      color: #234;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-weight: 800;
+      font-size: 1rem;
+    }
+
+    .modal-body {
+      padding: 8px 18px 18px;
+      border-top: 1px solid #edf0f4;
+    }
+
+    .modal-highlights {
+      color: #2f3438;
+      font-size: 0.92rem;
+      margin: 10px 0 12px;
+      line-height: 1.55;
+    }
+
+    .modal-info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .mini-card {
+      background: #f8fbfe;
+      border: 1px solid #deebf6;
+      border-radius: 10px;
+      padding: 10px;
+    }
+
+    .mini-card small {
+      display: block;
+      color: #6f7378;
+      font-size: 0.74rem;
+      margin-bottom: 4px;
+    }
+
+    .mini-card strong {
+      color: #183850;
+      font-size: 0.9rem;
+    }
+
+    .modal-lists {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .modal-list-box {
+      border: 1px solid #e6edf3;
+      border-radius: 12px;
+      padding: 10px 12px;
+      background: #fff;
+    }
+
+    .modal-list-box h5 {
+      font-size: 0.88rem;
+      margin-bottom: 8px;
+      color: #18435f;
+    }
+
+    .modal-list-box ul {
+      padding-left: 18px;
+      color: #394046;
+      font-size: 0.86rem;
+      display: grid;
+      gap: 5px;
+    }
+
+    .modal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .modal-grid input,
+    .modal-grid select {
+      border: 1px solid #d6dde2;
+      border-radius: 10px;
+      padding: 10px 11px;
+      font: inherit;
+      width: 100%;
+    }
+
+    .modal-note {
+      width: 100%;
+      border: 1px solid #d6dde2;
+      border-radius: 10px;
+      padding: 10px 11px;
+      min-height: 85px;
+      resize: vertical;
+      font: inherit;
+      margin-bottom: 12px;
+    }
+
+    .live-price {
+      margin-bottom: 12px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: #f4f9ff;
+      border: 1px solid #d8e7f6;
+      color: #1b3d56;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(10px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .floating {
+      position: fixed;
+      right: max(12px, env(safe-area-inset-right));
+      bottom: calc(12px + env(safe-area-inset-bottom));
+      z-index: 80;
+      display: grid;
+      gap: 8px;
+    }
+
+    .fab {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: none;
+      color: #fff;
+      font-size: 1.25rem;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 10px 18px rgba(0, 0, 0, 0.25);
+      display: grid;
+      place-items: center;
+      text-decoration: none;
+      transition: transform 0.2s ease, filter 0.2s ease;
+    }
+
+    .fab:hover {
+      transform: translateY(-3px) scale(1.05);
+      filter: brightness(1.08);
+    }
+
+    .fab.top {
+      background: #db0c4b;
+    }
+
+    .fab.wa {
+      background: #14b266;
+      font-size: 0;
+      position: relative;
+    }
+
+    .fab.wa::before {
+      content: "";
+      width: 22px;
+      height: 22px;
+      display: block;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      /* WhatsApp-style white glyph */
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%23fff' d='M19.11 17.12c-.27-.14-1.59-.78-1.84-.87-.25-.09-.43-.14-.61.14-.18.27-.7.87-.86 1.05-.16.18-.32.2-.59.07-.27-.14-1.13-.42-2.15-1.34-.79-.71-1.32-1.59-1.47-1.86-.16-.27-.02-.42.12-.56.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.48-.84-2.03-.22-.53-.44-.46-.61-.47-.16-.01-.34-.01-.52-.01-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27 0 1.34.97 2.64 1.11 2.82.14.18 1.91 2.92 4.62 4.1.65.28 1.15.45 1.54.58.65.21 1.24.18 1.71.11.52-.08 1.59-.65 1.82-1.27.23-.62.23-1.15.16-1.27-.07-.12-.25-.2-.52-.34z'/%3E%3Cpath fill='%23fff' d='M16.02 3.2c-6.89 0-12.49 5.6-12.49 12.48 0 2.2.57 4.34 1.66 6.23L3 29l7.3-1.92a12.42 12.42 0 0 0 5.72 1.46h.01c6.88 0 12.48-5.6 12.48-12.49 0-3.34-1.3-6.48-3.67-8.84A12.4 12.4 0 0 0 16.02 3.2zm0 22.98h-.01a10.5 10.5 0 0 1-5.35-1.47l-.38-.23-4.33 1.14 1.16-4.22-.25-.4a10.44 10.44 0 0 1-1.61-5.58c0-5.77 4.7-10.47 10.48-10.47 2.8 0 5.44 1.09 7.41 3.07a10.4 10.4 0 0 1 3.06 7.41c0 5.78-4.7 10.47-10.48 10.47z'/%3E%3C/svg%3E");
+    }
+
+    footer {
+      background: #0b2438;
+      color: #dce4ea;
+      padding: 40px 0 26px;
+    }
+
+    .foot {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr;
+      gap: 24px;
+    }
+
+    footer h5 {
+      color: #a6e7d3;
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+
+    footer p, footer li {
+      color: #c3d0da;
+      list-style: none;
+      font-size: 0.92rem;
+      margin-bottom: 6px;
+    }
+
+    .copy {
+      margin-top: 18px;
+      border-top: 1px solid rgba(195, 208, 218, 0.2);
+      padding-top: 12px;
+      text-align: center;
+      color: #9fb0be;
+      font-size: 0.86rem;
+    }
+
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+      will-change: opacity, transform;
+    }
+
+    [data-reveal].is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .scroll-react {
+      will-change: transform, opacity;
+      transition: transform 0.18s linear, opacity 0.18s linear;
+    }
+
+    [data-cinematic] {
+      opacity: 0.15;
+      transform: translateY(54px) scale(0.985);
+      filter: blur(2px);
+      transition: transform 0.95s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.95s ease, filter 0.95s ease;
+    }
+
+    [data-cinematic].is-active {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+
+    .float-soft {
+      animation: floating 5.8s ease-in-out infinite;
+    }
+
+    @keyframes floating {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-9px); }
+    }
+
+    @keyframes heroZoom {
+      0% { background-size: 100%, 100%; }
+      100% { background-size: 100%, 106%; }
+    }
+
+    @media (max-width: 1080px) {
+      .hero-wrap,
+      .dest-flex {
+        grid-template-columns: 1fr;
+      }
+
+      .polaroids {
+        min-height: 300px;
+      }
+
+      .p1 { top: 8px; left: 2%; width: 170px; height: 210px; }
+      .p2 { top: 0; left: 30%; width: 170px; height: 210px; }
+      .p3 { top: 72px; left: 18%; width: 170px; height: 210px; }
+      .p4 { top: 96px; left: 48%; width: 170px; height: 210px; }
+
+      .offers-grid,
+      .tour-grid,
+      .dest-cards,
+      .review-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .types-row {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .topnav {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 8px 0 10px;
+        gap: 8px;
+      }
+
+      .brand {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .brand img {
+        width: 88px;
+        transform: translateY(0);
+      }
+
+      .brand-text {
+        text-align: left;
+      }
+
+      .brand-text strong {
+        font-size: 0.95rem;
+      }
+
+      .brand-text span {
+        font-size: 0.7rem;
+      }
+
+      nav {
+        width: 100%;
+      }
+
+      nav ul {
+        justify-content: center;
+        gap: 10px;
+        border-radius: 16px;
+        padding: 7px;
+      }
+
+      nav a {
+        font-size: 0.82rem;
+        padding: 8px 10px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 38px 0 58px;
+      }
+
+      .hero p {
+        font-size: 0.98rem;
+        margin-bottom: 16px;
+      }
+
+      .hero .title {
+        font-size: clamp(2.05rem, 8.6vw, 3rem);
+      }
+
+      .btn {
+        padding: 11px 24px;
+      }
+
+      .polaroids {
+        min-height: 235px;
+      }
+
+      .p1 { top: 6px; left: 4%; width: 120px; height: 150px; }
+      .p2 { top: 0; left: 33%; width: 120px; height: 150px; }
+      .p3 { top: 58px; left: 18%; width: 120px; height: 150px; }
+      .p4 { top: 70px; left: 52%; width: 120px; height: 150px; }
+
+      .offer-content p {
+        max-width: 100%;
+      }
+
+      .offers-grid,
+      .tour-grid,
+      .dest-cards,
+      .booking-form,
+      .modal-grid,
+      .modal-info-grid,
+      .modal-lists,
+      .foot,
+      .subscribe-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .review-card {
+        min-width: calc((100% - 12px) / 2);
+      }
+
+      .gallery-item {
+        min-width: calc((100% - 12px) / 2);
+      }
+
+      .types-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .script {
+        font-size: 1.5rem;
+      }
+
+      .section {
+        padding: 50px 0;
+      }
+
+      .fab {
+        width: 44px;
+        height: 44px;
+        font-size: 1.12rem;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .container {
+        width: min(1180px, 94%);
+      }
+
+      .brand-text {
+        display: none;
+      }
+
+      nav a {
+        font-size: 0.78rem;
+      }
+
+      h2.title {
+        font-size: clamp(1.75rem, 8vw, 2.35rem);
+      }
+
+      .hero-wrap {
+        gap: 14px;
+      }
+
+      .polaroids {
+        min-height: 205px;
+      }
+
+      .p1 { top: 8px; left: 0; width: 106px; height: 132px; }
+      .p2 { top: 0; left: 30%; width: 106px; height: 132px; }
+      .p3 { top: 52px; left: 14%; width: 106px; height: 132px; }
+      .p4 { top: 62px; left: 48%; width: 106px; height: 132px; }
+
+      .modal-card {
+        border-radius: 14px;
+      }
+
+      .review-card,
+      .gallery-item {
+        min-width: 100%;
+      }
+
+      .modal-cover {
+        height: 132px;
+      }
+
+      .modal-head,
+      .modal-body {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container topnav">
+      <div class="brand">
+        <img src="logo.png" alt="MYKAZ SOLUTIONS logo">
+        <div class="brand-text">
+          <strong>MYKAZ SOLUTIONS</strong>
+          <span>langkawi tour and transfer</span>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#offers">Promotions</a></li>
+          <li><a href="#destinations">Langkawi Spots</a></li>
+          <li><a href="#packages">Langkawi Packages</a></li>
+          <li><a href="#reviews">About Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="container hero-wrap">
+      <div data-reveal>
+        <p class="script">Explore Our</p>
+        <h2 class="title">LANGKAWI TOUR PACKAGE</h2>
+        <p>Complete Langkawi tour packages with island hopping, mangrove adventures, cable car tickets, hotel options, and transfers in a premium green-blue style.</p>
+        <a class="btn btn-main wa-cta" href="#" data-message="Hi MYKAZ SOLUTIONS, I would like to see the best Langkawi tour packages based on my budget.">EXPLORE NOW</a>
+      </div>
+      <div class="polaroids float-soft" data-reveal>
+        <img class="polaroid p1" src="images/stack1.jpg" alt="Destination 1" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?auto=format&fit=crop&w=800&q=80';">
+        <img class="polaroid p2" src="images/stack2.jpg" alt="Destination 2" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=800&q=80';">
+        <img class="polaroid p3" src="images/stack3.jpg" alt="Destination 3" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=800&q=80';">
+        <img class="polaroid p4" src="images/stack4.jpg" alt="Destination 4" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1488085061387-422e29b40080?auto=format&fit=crop&w=800&q=80';">
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="offers">
+    <div class="container">
+      <div style="text-align:center" data-reveal>
+        <p class="script">Don't miss our</p>
+        <h2 class="title">Special Offers (Exclusive)</h2>
+      </div>
+      <div class="offers-grid" data-reveal>
+        <article class="offer" data-reveal>
+          <img src="https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?auto=format&fit=crop&w=1200&q=80" alt="Private Yacht Sunset">
+          <span class="badge">LIMITED · VIP</span>
+          <div class="offer-content">
+            <h4>Private Yacht Sunset Experience</h4>
+            <p>Premium sunset cruise with a photo session and welcome drinks for couples or small groups.</p>
+            <button class="offer-link wa-cta" type="button" data-message="Hi MYKAZ SOLUTIONS, I want details for the EXCLUSIVE Private Yacht Sunset Experience offer.">Unlock Offer →</button>
+          </div>
+        </article>
+        <article class="offer" data-reveal>
+          <img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1200&q=80" alt="Luxury Escape Resort">
+          <span class="badge">LIMITED · PREMIUM</span>
+          <div class="offer-content">
+            <h4>Langkawi Luxury Escape 4D3N</h4>
+            <p>Premium resort stay, private transport, and chef-special dinner. Very limited slots.</p>
+            <button class="offer-link wa-cta" type="button" data-message="Hi MYKAZ SOLUTIONS, I want details for the EXCLUSIVE Langkawi Luxury Escape 4D3N offer.">Unlock Offer →</button>
+          </div>
+        </article>
+        <article class="offer" data-reveal>
+          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80" alt="Corporate Retreat">
+          <span class="badge">LIMITED · EXECUTIVE</span>
+          <div class="offer-content">
+            <h4>Corporate Retreat Exclusive Deal</h4>
+            <p>Team-building package with meeting setup and island activities for corporate groups.</p>
+            <button class="offer-link wa-cta" type="button" data-message="Hi MYKAZ SOLUTIONS, I want details for the Corporate Retreat Exclusive Deal.">Unlock Offer →</button>
+          </div>
+        </article>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section soft" id="packages">
+    <div class="container">
+      <div style="text-align:center" data-reveal>
+        <p class="script">What's new</p>
+        <h2 class="title">Popular Langkawi Tours</h2>
+      </div>
+
+      <div class="tour-grid">
+        <article class="tour-card" data-reveal>
+          <img src="images/stack1.jpg" alt="Langkawi Island Hopping">
+          <div class="tour-body">
+            <p class="meta">1 day · 2 pax</p>
+            <h4>1D Langkawi Island Hopping Discovery</h4>
+            <div class="price-row"><span class="price">RM290</span><button class="link-btn open-package-modal" type="button" data-package="1D Langkawi Island Hopping Discovery" data-price="RM290" data-details="Island hopping boat, iconic photo spots, and relaxing beach moments in one day.">Explore →</button></div>
+          </div>
+        </article>
+        <article class="tour-card" data-reveal>
+          <img src="images/stack2.jpg" alt="Langkawi Mangrove Tour">
+          <div class="tour-body">
+            <p class="meta">1 day · 2 pax</p>
+            <h4>1D Langkawi Mangrove + Kilim + ATV Adventure</h4>
+            <div class="price-row"><span class="price">RM340</span><button class="link-btn open-package-modal" type="button" data-package="1D Langkawi Mangrove + Kilim + ATV Adventure" data-price="RM340" data-details="Kilim geoforest boat ride, eagle feeding, cave stop, and ATV experience in one day.">Explore →</button></div>
+          </div>
+        </article>
+        <article class="tour-card" data-reveal>
+          <img src="images/stack4.jpg" alt="Langkawi SkyCab and SkyBridge">
+          <div class="tour-body">
+            <p class="meta">1 day · 2 pax</p>
+            <h4>1D SkyCab + SkyBridge + City Highlights Tour</h4>
+            <div class="price-row"><span class="price">RM390</span><button class="link-btn open-package-modal" type="button" data-package="1D SkyCab + SkyBridge + City Highlights Tour" data-price="RM390" data-details="SkyCab, SkyBridge, and city highlights with convenient transport in one day.">Explore →</button></div>
+          </div>
+        </article>
+        <article class="tour-card" data-reveal>
+          <img src="images/stack3.jpg" alt="Langkawi Romantic Couple Experience">
+          <div class="tour-body">
+            <p class="meta">1 day · 2 pax</p>
+            <h4>1D Langkawi Romantic Couple Experience</h4>
+            <div class="price-row"><span class="price">RM450</span><button class="link-btn open-package-modal" type="button" data-package="1D Langkawi Romantic Couple Experience" data-price="RM450" data-details="Private couple experience with sunset views and romantic setup in one day.">Explore →</button></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section soft video-section" id="destinations">
+    <video class="video-bg" autoplay muted loop playsinline preload="metadata">
+      <source src="images/video.mp4" type="video/mp4">
+    </video>
+    <div class="container dest-flex">
+      <div data-reveal>
+        <p class="script">Places to go</p>
+        <h2 class="title">Top Spot Langkawi</h2>
+        <p class="sub">Explore the top Langkawi spots for family holidays, honeymoons, and group travel.</p>
+        <div class="dest-links">
+          <button class="wa-cta" type="button" data-message="Hi MYKAZ SOLUTIONS, I want a Pantai Cenang package.">Pantai Cenang</button><button class="wa-cta" type="button" data-message="Hi MYKAZ SOLUTIONS, I want a Kilim Geoforest Park package.">Kilim Geoforest</button>
+          <button class="wa-cta" type="button" data-message="Hi MYKAZ SOLUTIONS, I want a SkyCab & SkyBridge tour.">SkyCab & SkyBridge</button><button class="wa-cta" type="button" data-message="Hi MYKAZ SOLUTIONS, I want a trip to Pulau Dayang Bunting.">Dayang Bunting</button>
+          <button class="wa-cta" type="button" data-message="Hi MYKAZ SOLUTIONS, I am interested in Langkawi island hopping.">Island Hopping</button><button class="wa-cta" type="button" data-message="Hi MYKAZ SOLUTIONS, I want a sunset cruise package.">Sunset Cruise</button>
+        </div>
+      </div>
+      <div class="dest-cards">
+        <article class="dest-card" data-reveal>
+          <img src="images/stack3.jpg" alt="Pantai Cenang">
+          <span>Pantai Cenang</span>
+        </article>
+        <article class="dest-card" data-reveal>
+          <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1000&q=80" alt="SkyBridge">
+          <span>SkyBridge</span>
+        </article>
+        <article class="dest-card" data-reveal>
+          <img src="images/stack4.jpg" alt="Island Hopping">
+          <span>Island Hopping</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section soft" id="reviews">
+    <div class="container" style="text-align:center" data-reveal>
+      <p class="script">Testimonials</p>
+      <h2 class="title">Customer Reviews</h2>
+      <p class="sub" style="margin:0 auto">Discover what our customers say about our Langkawi tours and private transfer experience.</p>
+
+      <div class="review-shell" data-reveal>
+        <div class="carousel-head">
+          <h3>Testimonials</h3>
+          <div class="carousel-actions">
+            <button class="carousel-btn" id="reviewPrev" type="button">←</button>
+            <button class="carousel-btn primary" id="reviewNext" type="button">→</button>
+          </div>
+        </div>
+        <div class="review-track-wrap">
+          <div class="review-track" id="reviewTrack">
+            <article class="review-card">
+              <div class="review-stars">★★★★★</div>
+              <p>Fast response and smooth arrangements from airport pickup until our island tour ended.</p>
+              <div class="review-user"><img src="https://randomuser.me/api/portraits/women/12.jpg" alt="user">Aina Rahman</div>
+            </article>
+            <article class="review-card">
+              <div class="review-stars">★★★★★</div>
+              <p>The SkyCab and city highlights package was perfectly planned for our family schedule.</p>
+              <div class="review-user"><img src="https://randomuser.me/api/portraits/men/32.jpg" alt="user">Daniel Lim</div>
+            </article>
+            <article class="review-card">
+              <div class="review-stars">★★★★★</div>
+              <p>Very professional team. Driver was punctual and the trip felt premium throughout.</p>
+              <div class="review-user"><img src="https://randomuser.me/api/portraits/women/45.jpg" alt="user">Nur Izzah</div>
+            </article>
+            <article class="review-card">
+              <div class="review-stars">★★★★★</div>
+              <p>Our mangrove and Kilim tour was excellent, and booking through WhatsApp was super easy.</p>
+              <div class="review-user"><img src="https://randomuser.me/api/portraits/men/51.jpg" alt="user">Hafiz Noor</div>
+            </article>
+          </div>
+        </div>
+        <div class="carousel-dots" id="reviewDots" aria-label="Review slider dots"></div>
+      </div>
+
+      <div class="gallery-shell" data-reveal>
+        <div class="carousel-head">
+          <h3>Gallery Dump</h3>
+          <div class="carousel-actions">
+            <button class="carousel-btn" id="galleryPrev" type="button">←</button>
+            <button class="carousel-btn primary" id="galleryNext" type="button">→</button>
+          </div>
+        </div>
+        <div class="gallery-track-wrap">
+          <div class="gallery-track" id="galleryTrack">
+            <div class="gallery-item"><img src="images/stack1.jpg" alt="gallery 1"></div>
+            <div class="gallery-item"><img src="images/stack2.jpg" alt="gallery 2"></div>
+            <div class="gallery-item"><img src="images/stack3.jpg" alt="gallery 3"></div>
+            <div class="gallery-item"><img src="images/stack4.jpg" alt="gallery 4"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=1000&q=80" alt="gallery 5"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1526481280695-3c46945f538c?auto=format&fit=crop&w=1000&q=80" alt="gallery 6"></div>
+          </div>
+        </div>
+        <div class="carousel-dots" id="galleryDots" aria-label="Gallery slider dots"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="booking">
+    <div class="container" data-reveal>
+      <p class="script">Book instantly</p>
+      <h2 class="title">Langkawi Package Booking Form</h2>
+      <p class="sub">Fill in your details, submit, and your Langkawi package inquiry will be sent directly to our WhatsApp sales team.</p>
+
+      <div class="booking-wrap">
+        <form id="bookingForm" class="booking-form">
+          <input id="bookName" type="text" placeholder="Full name" required>
+          <input id="bookPhone" type="tel" placeholder="Phone number (example: 019xxxxxxx)" required>
+          <input id="bookEmail" type="email" placeholder="Email" required>
+          <select id="bookDestination" required>
+            <option value="">Select destination</option>
+            <option>Pantai Cenang</option>
+            <option>Kilim Geoforest Park</option>
+            <option>Langkawi SkyCab & SkyBridge</option>
+            <option>Island Hopping</option>
+            <option>Sunset Cruise</option>
+            <option>Custom Langkawi Tour</option>
+          </select>
+          <input id="bookDate" type="date" required>
+          <input id="bookPax" type="number" min="1" placeholder="Number of pax" required>
+          <input id="bookBudget" type="text" placeholder="Estimated budget (example: RM3000/pax)">
+          <select id="bookType" required>
+            <option value="">Trip type</option>
+            <option>Honeymoon</option>
+            <option>Family</option>
+            <option>Company Trip</option>
+            <option>Private Tour</option>
+            <option>Island Hopping</option>
+          </select>
+          <input id="bookDuration" type="text" placeholder="Trip duration (example: 5 days 4 nights)">
+          <textarea id="bookNotes" placeholder="Additional requests (hotel, halal food, stroller, etc.)"></textarea>
+          <div class="booking-actions">
+            <button class="btn btn-main" type="submit">Send Booking to WhatsApp</button>
+            <button class="btn" id="quickConsultBtn" type="button" style="background:#eef5fb;color:#0b5ea6;">Quick Consult</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="foot">
+        <div>
+          <h5>MYKAZ SOLUTIONS</h5>
+          <p>Langkawi tour and transfer specialist with structured itineraries, competitive pricing, and friendly customer support.</p>
+        </div>
+        <div>
+          <h5>Visit</h5>
+          <ul>
+            <li>About Us</li>
+            <li>Corporate</li>
+            <li>Services</li>
+            <li>Our Blog</li>
+          </ul>
+        </div>
+        <div>
+          <h5>Contact Us</h5>
+          <p>Wisma Star Travel, Jalan Raja Abdullah</p>
+          <p><a href="tel:+60194986889" style="color:inherit;text-decoration:none">+60 19-498 6889</a></p>
+          <p><a href="https://wa.me/60194986889" style="color:inherit;text-decoration:none">WhatsApp Booking: +60 19-498 6889</a></p>
+          <p>Mon-Fri: 9:00 AM - 6:00 PM</p>
+        </div>
+      </div>
+      <div class="copy">Copyright &copy; 2026 MYKAZ SOLUTIONS. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <div class="floating">
+    <a class="fab top" href="#home" title="Back to top">⌃</a>
+    <a class="fab wa" href="https://wa.me/60194986889?text=Hi%20MYKAZ%20SOLUTIONS%2C%20I%20want%20to%20make%20a%20booking." title="WhatsApp" aria-label="Open WhatsApp chat"></a>
+  </div>
+
+  <div id="packageModal" class="package-modal" aria-hidden="true">
+    <div class="modal-card">
+      <div id="modalCover" class="modal-cover"></div>
+      <div class="modal-head">
+        <div>
+          <h3 id="modalPackageTitle">Package Name</h3>
+          <p id="modalPackagePrice">From RM0</p>
+          <div class="modal-badges">
+            <span id="modalBadgeDuration" class="chip">-</span>
+            <span id="modalBadgeSuitable" class="chip">-</span>
+            <span id="modalBadgeSlots" class="chip">-</span>
+          </div>
+        </div>
+        <button id="modalCloseBtn" class="modal-close" type="button">✕</button>
+      </div>
+      <div class="modal-body">
+        <p id="modalPackageDetails" class="modal-highlights"></p>
+        <div class="modal-info-grid">
+          <div class="mini-card"><small>Pickup</small><strong id="modalPickup">-</strong></div>
+          <div class="mini-card"><small>Start Time</small><strong id="modalStartTime">-</strong></div>
+          <div class="mini-card"><small>Best For</small><strong id="modalBestFor">-</strong></div>
+        </div>
+        <div class="modal-lists">
+          <div class="modal-list-box">
+            <h5>What You Get</h5>
+            <ul id="modalIncludes"></ul>
+          </div>
+          <div class="modal-list-box">
+            <h5>Not Included</h5>
+            <ul id="modalExcludes"></ul>
+          </div>
+        </div>
+        <form id="packageModalForm">
+          <div class="modal-grid">
+            <input id="modalBookingDate" type="date" required>
+            <select id="modalBookingTime" required>
+              <option value="">Select time</option>
+              <option>08:00 AM</option>
+              <option>10:00 AM</option>
+              <option>12:00 PM</option>
+              <option>02:00 PM</option>
+              <option>04:00 PM</option>
+            </select>
+            <select id="modalBookingPax" required>
+              <option value="">No. of pax</option>
+              <option>1 pax</option>
+              <option>2 pax</option>
+              <option>3 pax</option>
+              <option>4 pax</option>
+              <option>5 pax</option>
+              <option>6+ pax</option>
+            </select>
+          </div>
+          <div id="modalLivePrice" class="live-price">Estimated total: RM0</div>
+          <textarea id="modalBookingNotes" class="modal-note" placeholder="Additional requests (pickup, stroller, meals, etc.)"></textarea>
+          <button class="btn btn-main" type="submit">Book This Package (WhatsApp)</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const WHATSAPP_NO = "60194986889";
+    const waLink = (msg) => `https://wa.me/${WHATSAPP_NO}?text=${encodeURIComponent(msg)}`;
+    const openWhatsApp = (msg) => window.open(waLink(msg), "_blank");
+
+    const revealItems = document.querySelectorAll("[data-reveal]");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+        } else {
+          entry.target.classList.remove("is-visible");
+        }
+      });
+    }, { threshold: 0.14 });
+
+    revealItems.forEach((item, index) => {
+      item.style.transitionDelay = (index % 6) * 60 + "ms";
+      observer.observe(item);
+    });
+
+    const cinematicSections = document.querySelectorAll("section");
+    cinematicSections.forEach((section) => section.setAttribute("data-cinematic", ""));
+    const cinematicObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-active");
+        } else {
+          entry.target.classList.remove("is-active");
+        }
+      });
+    }, { threshold: 0.24 });
+    cinematicSections.forEach((section) => cinematicObserver.observe(section));
+
+    const heroSection = document.getElementById("home");
+    const heroPolaroids = document.querySelector(".polaroids");
+    if (heroSection && heroPolaroids) {
+      const heroObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            heroPolaroids.classList.remove("is-scattered");
+          } else {
+            heroPolaroids.classList.add("is-scattered");
+          }
+        });
+      }, { threshold: 0.28 });
+
+      heroObserver.observe(heroSection);
+    }
+
+    const scrollReactiveItems = document.querySelectorAll(".offer, .tour-card, .dest-card, .review, .subscribe-wrap");
+    scrollReactiveItems.forEach((el) => el.classList.add("scroll-react"));
+
+    const runScrollReactive = () => {
+      const vh = window.innerHeight || 1;
+      scrollReactiveItems.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        const center = rect.top + rect.height / 2;
+        const progress = Math.max(-1, Math.min(1, (center - vh / 2) / (vh * 0.55)));
+        const y = progress * 18;
+        const scale = 1 - Math.abs(progress) * 0.03;
+        const opacity = 1 - Math.abs(progress) * 0.16;
+        el.style.transform = `translate3d(0, ${y}px, 0) scale(${scale})`;
+        el.style.opacity = `${Math.max(0.82, opacity)}`;
+      });
+    };
+
+    runScrollReactive();
+    window.addEventListener("scroll", runScrollReactive, { passive: true });
+    window.addEventListener("resize", runScrollReactive);
+
+    const initCarousel = (trackId, prevId, nextId, dotsId, intervalMs = 3500) => {
+      const track = document.getElementById(trackId);
+      const prev = document.getElementById(prevId);
+      const next = document.getElementById(nextId);
+      const dots = document.getElementById(dotsId);
+      if (!track || !prev || !next || !dots) return;
+
+      let index = 0;
+      let timer = null;
+      const getStep = () => {
+        const item = track.children[0];
+        if (!item) return 0;
+        const style = window.getComputedStyle(track);
+        const gap = parseFloat(style.columnGap || style.gap || "0") || 0;
+        return item.getBoundingClientRect().width + gap;
+      };
+
+      const visibleCount = () => {
+        const firstItem = track.children[0];
+        if (!firstItem) return 1;
+        const wrap = track.parentElement;
+        const itemW = firstItem.getBoundingClientRect().width || 1;
+        const fit = Math.floor((wrap.getBoundingClientRect().width + 2) / itemW);
+        return Math.max(1, fit);
+      };
+
+      const maxIndex = () => Math.max(0, track.children.length - visibleCount());
+
+      const renderDots = () => {
+        const total = maxIndex() + 1;
+        dots.innerHTML = "";
+        for (let i = 0; i < total; i += 1) {
+          const dot = document.createElement("button");
+          dot.type = "button";
+          dot.className = "carousel-dot";
+          if (i === index) dot.classList.add("is-active");
+          dot.setAttribute("aria-label", `Go to slide ${i + 1}`);
+          dot.addEventListener("click", () => {
+            index = i;
+            update();
+            restartAuto();
+          });
+          dots.appendChild(dot);
+        }
+      };
+
+      const updateDots = () => {
+        [...dots.children].forEach((dot, i) => {
+          dot.classList.toggle("is-active", i === index);
+        });
+      };
+
+      const update = () => {
+        const step = getStep();
+        index = Math.max(0, Math.min(maxIndex(), index));
+        track.style.transform = `translateX(-${index * step}px)`;
+        updateDots();
+      };
+
+      next.addEventListener("click", () => {
+        index = index >= maxIndex() ? 0 : index + 1;
+        update();
+        restartAuto();
+      });
+
+      prev.addEventListener("click", () => {
+        index = index <= 0 ? maxIndex() : index - 1;
+        update();
+        restartAuto();
+      });
+
+      const startAuto = () => {
+        if (timer) clearInterval(timer);
+        timer = setInterval(() => {
+          index = index >= maxIndex() ? 0 : index + 1;
+          update();
+        }, intervalMs);
+      };
+
+      const stopAuto = () => {
+        if (timer) clearInterval(timer);
+      };
+
+      const restartAuto = () => {
+        stopAuto();
+        startAuto();
+      };
+
+      track.addEventListener("mouseenter", stopAuto);
+      track.addEventListener("mouseleave", startAuto);
+      track.addEventListener("touchstart", stopAuto, { passive: true });
+      track.addEventListener("touchend", startAuto, { passive: true });
+
+      window.addEventListener("resize", () => {
+        renderDots();
+        update();
+      });
+
+      renderDots();
+      update();
+      startAuto();
+    };
+
+    initCarousel("reviewTrack", "reviewPrev", "reviewNext", "reviewDots", 3600);
+    initCarousel("galleryTrack", "galleryPrev", "galleryNext", "galleryDots", 3000);
+
+    const packageModal = document.getElementById("packageModal");
+    const modalCloseBtn = document.getElementById("modalCloseBtn");
+    const modalPackageTitle = document.getElementById("modalPackageTitle");
+    const modalPackagePrice = document.getElementById("modalPackagePrice");
+    const modalPackageDetails = document.getElementById("modalPackageDetails");
+    const modalBadgeDuration = document.getElementById("modalBadgeDuration");
+    const modalBadgeSuitable = document.getElementById("modalBadgeSuitable");
+    const modalBadgeSlots = document.getElementById("modalBadgeSlots");
+    const modalPickup = document.getElementById("modalPickup");
+    const modalStartTime = document.getElementById("modalStartTime");
+    const modalBestFor = document.getElementById("modalBestFor");
+    const modalIncludes = document.getElementById("modalIncludes");
+    const modalExcludes = document.getElementById("modalExcludes");
+    const modalCover = document.getElementById("modalCover");
+    const packageModalForm = document.getElementById("packageModalForm");
+    const modalBookingDate = document.getElementById("modalBookingDate");
+    const modalBookingTime = document.getElementById("modalBookingTime");
+    const modalBookingPax = document.getElementById("modalBookingPax");
+    const modalBookingNotes = document.getElementById("modalBookingNotes");
+    const modalLivePrice = document.getElementById("modalLivePrice");
+    let activePackage = "";
+    let activePrice = "";
+    const packageCatalog = {
+      "1D Langkawi Island Hopping Discovery": {
+        duration: "1 Day",
+        suitable: "Family / Couple",
+        slots: "Only 20 slots/day",
+        pickup: "Hotel / Jetty pickup",
+        start: "10:00 AM",
+        bestFor: "Sunset + island photo spots",
+        summary: "Our most popular one-day package for first-time visitors to Langkawi, covering signature island hopping highlights.",
+        includes: ["Island hopping boat", "Life jacket & safety briefing", "Jetty/hotel transfer", "Basic local guide assistance"],
+        excludes: ["Personal lunch & dinner", "Travel insurance", "Personal expenses"],
+        cover: "images/stack1.jpg"
+      },
+      "1D Langkawi Mangrove + Kilim + ATV Adventure": {
+        duration: "1 Day",
+        suitable: "Adventure Group",
+        slots: "Limited daily slots",
+        pickup: "Pickup around Pantai Cenang",
+        start: "08:00 AM",
+        bestFor: "Nature + ATV experience",
+        summary: "A packed one-day nature and adventure combo with mangrove exploration and ATV excitement.",
+        includes: ["Kilim geoforest boat tour", "ATV basic track", "Experienced guide", "Mineral water & safety gear"],
+        excludes: ["Raincoat / extra outfit", "Lunch", "Optional add-on activities"],
+        cover: "images/stack2.jpg"
+      },
+      "1D SkyCab + SkyBridge + City Highlights Tour": {
+        duration: "1 Day",
+        suitable: "Family Friendly",
+        slots: "Daily departures",
+        pickup: "Hotel pickup included",
+        start: "09:30 AM",
+        bestFor: "Best of Langkawi highlights",
+        summary: "A complete one-day highlights tour for travelers who want to cover Langkawi's top attractions quickly.",
+        includes: ["SkyCab standard lane", "SkyBridge access", "Half-day city tour", "Round-trip hotel transfer"],
+        excludes: ["Fast lane / express queue", "Meals", "Souvenirs & extra entrance fees"],
+        cover: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80"
+      },
+      "1D Langkawi Romantic Couple Experience": {
+        duration: "1 Day",
+        suitable: "Couple / Honeymoon",
+        slots: "Max 12 couples/day",
+        pickup: "Private transfer",
+        start: "Flexible timing",
+        bestFor: "Romantic private moments",
+        summary: "A premium one-day romantic experience designed for couples who want memorable private moments in Langkawi.",
+        includes: ["Romantic dining setup", "Private pickup & transfer", "Photo-friendly itinerary", "Basic surprise deco"],
+        excludes: ["Professional photographer", "Premium flower arrangement", "Travel insurance"],
+        cover: "https://images.unsplash.com/photo-1516589091380-5d6012b1f85c?auto=format&fit=crop&w=1200&q=80"
+      }
+    };
+
+    const renderList = (element, items) => {
+      element.innerHTML = "";
+      items.forEach((item) => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        element.appendChild(li);
+      });
+    };
+
+    const openPackageModal = (title, price, details) => {
+      activePackage = title;
+      activePrice = price;
+      const data = packageCatalog[title] || {
+        duration: "-",
+        suitable: "General travelers",
+        slots: "Subject to availability",
+        pickup: "By arrangement",
+        start: "Flexible",
+        bestFor: "Langkawi trip",
+        summary: details || "Details akan diberi oleh team kami.",
+        includes: ["Itinerary consultation", "WhatsApp support"],
+        excludes: ["Custom add-ons"],
+        cover: "https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=1200&q=80"
+      };
+
+      modalPackageTitle.textContent = title;
+      modalPackagePrice.textContent = `From ${price}`;
+      modalPackageDetails.textContent = data.summary;
+      modalBadgeDuration.textContent = data.duration;
+      modalBadgeSuitable.textContent = data.suitable;
+      modalBadgeSlots.textContent = data.slots;
+      modalPickup.textContent = data.pickup;
+      modalStartTime.textContent = data.start;
+      modalBestFor.textContent = data.bestFor;
+      renderList(modalIncludes, data.includes);
+      renderList(modalExcludes, data.excludes);
+      modalCover.style.background = `linear-gradient(120deg, rgba(11,94,166,0.62), rgba(17,138,104,0.55)), url("${data.cover}") center/cover no-repeat`;
+      updateModalTimeOptions();
+      updateLivePrice();
+      packageModal.classList.add("is-open");
+      packageModal.setAttribute("aria-hidden", "false");
+    };
+
+    const closePackageModal = () => {
+      packageModal.classList.remove("is-open");
+      packageModal.setAttribute("aria-hidden", "true");
+    };
+
+    document.querySelectorAll(".open-package-modal").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        openPackageModal(btn.dataset.package || "Langkawi Package", btn.dataset.price || "RM0", btn.dataset.details || "More details will be shared by our team.");
+      });
+    });
+
+    if (modalCloseBtn) {
+      modalCloseBtn.addEventListener("click", closePackageModal);
+    }
+
+    if (packageModal) {
+      packageModal.addEventListener("click", (e) => {
+        if (e.target === packageModal) closePackageModal();
+      });
+    }
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && packageModal.classList.contains("is-open")) {
+        closePackageModal();
+      }
+    });
+
+    if (packageModalForm) {
+      packageModalForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const date = modalBookingDate.value;
+        const time = modalBookingTime.value;
+        const pax = modalBookingPax.value;
+        const notes = modalBookingNotes.value.trim() || "-";
+
+        if (!date || !time || !pax) {
+          alert("Please select date, time, and number of pax.");
+          return;
+        }
+        if (isTodayDate(date) && getSlotMinutes(time) < (new Date().getHours() * 60 + new Date().getMinutes())) {
+          alert("Selected time has already passed. Please choose a future time slot.");
+          updateModalTimeOptions();
+          return;
+        }
+
+        const paxCount = getPaxCount(pax);
+        const unitPrice = getUnitPrice(activePrice);
+        const totalPrice = unitPrice * paxCount;
+        const message = [
+          "Hi MYKAZ SOLUTIONS, I want to book this package:",
+          `Package: ${activePackage}`,
+          `Unit price: RM${unitPrice}`,
+          `Date: ${date}`,
+          `Time: ${time}`,
+          `No. of pax: ${pax}`,
+          `Estimated total: RM${totalPrice}`,
+          `Notes: ${notes}`
+        ].join("\n");
+
+        openWhatsApp(message);
+        closePackageModal();
+      });
+    }
+
+    document.querySelectorAll(".wa-cta").forEach((el) => {
+      el.addEventListener("click", (e) => {
+        e.preventDefault();
+        const msg = el.dataset.message || "Hi MYKAZ SOLUTIONS, I want to ask about your Langkawi tour packages.";
+        openWhatsApp(msg);
+      });
+    });
+
+    const quickConsultBtn = document.getElementById("quickConsultBtn");
+    if (quickConsultBtn) {
+      quickConsultBtn.addEventListener("click", () => {
+        openWhatsApp("Hi MYKAZ SOLUTIONS, I need a quick consultation for Langkawi packages. Please call or WhatsApp me.");
+      });
+    }
+
+    const bookingForm = document.getElementById("bookingForm");
+    if (bookingForm) {
+      const today = new Date();
+      const fmt = (d) => d.toISOString().slice(0, 10);
+
+      // Set practical defaults for quicker checkout flow
+      const bookDateEl = document.getElementById("bookDate");
+      if (bookDateEl) bookDateEl.min = fmt(today);
+      if (bookDateEl && !bookDateEl.value) bookDateEl.value = fmt(today);
+
+      const destinationEl = document.getElementById("bookDestination");
+      if (destinationEl && !destinationEl.value) destinationEl.value = "Pantai Cenang";
+
+      const paxEl = document.getElementById("bookPax");
+      if (paxEl && !paxEl.value) paxEl.value = "2";
+
+      const typeEl = document.getElementById("bookType");
+      if (typeEl && !typeEl.value) typeEl.value = "Family";
+
+      const durationEl = document.getElementById("bookDuration");
+      if (durationEl && !durationEl.value) durationEl.value = "1 day";
+
+      bookingForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const fields = {
+          name: document.getElementById("bookName").value.trim(),
+          phone: document.getElementById("bookPhone").value.trim(),
+          email: document.getElementById("bookEmail").value.trim(),
+          destination: document.getElementById("bookDestination").value.trim(),
+          date: document.getElementById("bookDate").value.trim(),
+          pax: document.getElementById("bookPax").value.trim(),
+          budget: document.getElementById("bookBudget").value.trim() || "-",
+          type: document.getElementById("bookType").value.trim(),
+          duration: document.getElementById("bookDuration").value.trim() || "-",
+          notes: document.getElementById("bookNotes").value.trim() || "-"
+        };
+
+        if (!fields.name || !fields.phone || !fields.email || !fields.destination || !fields.date || !fields.pax || !fields.type) {
+          alert("Please complete all required fields before submitting your booking.");
+          return;
+        }
+
+        const bookingMessage = [
+          "Hi MYKAZ SOLUTIONS, I would like to make a Langkawi package booking.",
+          `Name: ${fields.name}`,
+          `Phone: ${fields.phone}`,
+          `Email: ${fields.email}`,
+          `Destination: ${fields.destination}`,
+          `Travel date: ${fields.date}`,
+          `Pax: ${fields.pax}`,
+          `Trip type: ${fields.type}`,
+          `Duration: ${fields.duration}`,
+          `Budget: ${fields.budget}`,
+          `Additional notes: ${fields.notes}`
+        ].join("\n");
+
+        openWhatsApp(bookingMessage);
+      });
+    }
+
+    // Package modal defaults (current date and nearest time slot)
+    const getUnitPrice = (priceText) => {
+      const n = String(priceText || "").replace(/[^0-9]/g, "");
+      return n ? parseInt(n, 10) : 0;
+    };
+
+    const getPaxCount = (paxLabel) => {
+      const m = String(paxLabel || "").match(/\d+/);
+      if (!m) return 1;
+      const count = parseInt(m[0], 10);
+      return Number.isFinite(count) && count > 0 ? count : 1;
+    };
+
+    const getNearestTimeSlot = () => {
+      const now = new Date();
+      const currentMinutes = now.getHours() * 60 + now.getMinutes();
+      const slots = [
+        { label: "08:00 AM", mins: 8 * 60 },
+        { label: "10:00 AM", mins: 10 * 60 },
+        { label: "12:00 PM", mins: 12 * 60 },
+        { label: "02:00 PM", mins: 14 * 60 },
+        { label: "04:00 PM", mins: 16 * 60 }
+      ];
+      const next = slots.find((s) => s.mins >= currentMinutes);
+      return (next || slots[slots.length - 1]).label;
+    };
+
+    const getSlotMinutes = (slotLabel) => {
+      const map = {
+        "08:00 AM": 8 * 60,
+        "10:00 AM": 10 * 60,
+        "12:00 PM": 12 * 60,
+        "02:00 PM": 14 * 60,
+        "04:00 PM": 16 * 60
+      };
+      return map[slotLabel] ?? 0;
+    };
+
+    const isTodayDate = (dateValue) => {
+      if (!dateValue) return false;
+      const today = new Date().toISOString().slice(0, 10);
+      return dateValue === today;
+    };
+
+    const updateModalTimeOptions = () => {
+      if (!modalBookingTime || !modalBookingDate) return;
+      const now = new Date();
+      const currentMinutes = now.getHours() * 60 + now.getMinutes();
+      const todaySelected = isTodayDate(modalBookingDate.value);
+      [...modalBookingTime.options].forEach((opt) => {
+        if (!opt.value) return;
+        const slotMin = getSlotMinutes(opt.value);
+        opt.disabled = todaySelected ? slotMin < currentMinutes : false;
+      });
+      const selected = modalBookingTime.value;
+      const selectedDisabled = selected && [...modalBookingTime.options].find((o) => o.value === selected)?.disabled;
+      if (!selected || selectedDisabled) {
+        const firstAvailable = [...modalBookingTime.options].find((o) => o.value && !o.disabled);
+        modalBookingTime.value = firstAvailable ? firstAvailable.value : "";
+      }
+    };
+
+    const updateLivePrice = () => {
+      if (!modalLivePrice) return;
+      const unit = getUnitPrice(activePrice);
+      const pax = getPaxCount(modalBookingPax?.value || "1 pax");
+      modalLivePrice.textContent = `Estimated total: RM${unit * pax} (RM${unit} x ${pax} pax)`;
+    };
+
+    if (modalBookingTime && !modalBookingTime.value) modalBookingTime.value = getNearestTimeSlot();
+    if (modalBookingPax && !modalBookingPax.value) modalBookingPax.value = "2 pax";
+    if (modalBookingDate && !modalBookingDate.value) {
+      modalBookingDate.value = new Date().toISOString().slice(0, 10);
+    }
+    if (modalBookingDate) {
+      modalBookingDate.min = new Date().toISOString().slice(0, 10);
+      modalBookingDate.addEventListener("change", updateModalTimeOptions);
+    }
+    if (modalBookingTime) modalBookingTime.addEventListener("change", updateModalTimeOptions);
+    if (modalBookingPax) modalBookingPax.addEventListener("change", updateLivePrice);
+    updateModalTimeOptions();
+    updateLivePrice();
+  </script>
+</body>
+</html>

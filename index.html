@@ -87,9 +87,9 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      min-height: 84px;
+      min-height: 72px;
       gap: 16px;
-      padding: 8px 0;
+      padding: 4px 0;
     }
 
     .brand {
@@ -101,7 +101,7 @@
     }
 
     .brand img {
-      width: 120px;
+      width: 104px;
       height: auto;
       max-height: none;
       border-radius: 0 !important;
@@ -135,6 +135,23 @@
 
     nav {
       margin-left: auto;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      border: 1px solid rgba(9, 67, 112, 0.14);
+      background: rgba(255, 255, 255, 0.92);
+      color: #1f3c52;
+      font-size: 1.2rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .mobile-nav-panel {
+      display: none;
     }
 
     nav ul {
@@ -1165,12 +1182,16 @@
     }
 
     @media (max-width: 760px) {
+      header {
+        backdrop-filter: saturate(150%) blur(10px);
+      }
+
       .topnav {
         flex-wrap: nowrap;
-        justify-content: flex-start;
-        min-height: 64px;
-        padding: 6px 0;
-        gap: 10px;
+        justify-content: space-between;
+        min-height: 50px;
+        padding: 1px 0;
+        gap: 8px;
       }
 
       .brand {
@@ -1179,7 +1200,7 @@
       }
 
       .brand img {
-        width: 72px;
+        width: 52px;
         transform: translateY(0);
       }
 
@@ -1189,17 +1210,50 @@
       }
 
       .brand-text strong {
-        font-size: 0.88rem;
+        font-size: 0.82rem;
         letter-spacing: 0.35px;
       }
 
       .brand-text span {
-        font-size: 0.64rem;
+        font-size: 0.6rem;
         letter-spacing: 0.28px;
       }
 
       nav {
         display: none;
+      }
+
+      .menu-toggle {
+        display: inline-grid;
+        place-items: center;
+      }
+
+      .mobile-nav-panel {
+        display: none;
+        margin-top: 6px;
+        padding: 10px;
+        border: 1px solid rgba(9, 67, 112, 0.12);
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.94);
+        box-shadow: 0 8px 18px rgba(8, 44, 74, 0.08);
+      }
+
+      .mobile-nav-panel.is-open {
+        display: block;
+      }
+
+      .mobile-nav-panel a {
+        display: block;
+        text-decoration: none;
+        color: #20384b;
+        font-size: 0.9rem;
+        font-weight: 700;
+        padding: 10px 8px;
+        border-radius: 10px;
+      }
+
+      .mobile-nav-panel a:hover {
+        background: rgba(11, 94, 166, 0.08);
       }
 
       nav ul {
@@ -1216,7 +1270,9 @@
 
       .hero {
         min-height: auto;
-        padding: 38px 0 58px;
+        padding: 2px 0 42px;
+        margin-top: 0;
+        background-position: center top;
       }
 
       .hero p {
@@ -1240,6 +1296,37 @@
       .p2 { top: 0; left: 33%; width: 120px; height: 150px; }
       .p3 { top: 58px; left: 18%; width: 120px; height: 150px; }
       .p4 { top: 70px; left: 52%; width: 120px; height: 150px; }
+
+      /* Keep video visible and make cards less rigid on mobile */
+      .video-section .dest-cards {
+        display: flex;
+        gap: 12px;
+        overflow-x: auto;
+        padding: 4px 2px 8px;
+        scroll-snap-type: x mandatory;
+      }
+
+      .video-section .dest-card {
+        min-width: 148px;
+        height: 210px;
+        scroll-snap-align: center;
+      }
+
+      .video-section .dest-card:nth-child(1) {
+        transform: rotate(-2.6deg) translateY(3px);
+      }
+
+      .video-section .dest-card:nth-child(2) {
+        transform: rotate(1.8deg) translateY(-5px);
+      }
+
+      .video-section .dest-card:nth-child(3) {
+        transform: rotate(-1.6deg) translateY(2px);
+      }
+
+      .video-section .dest-card:hover {
+        transform: translateY(-6px);
+      }
 
       .offer-content p {
         max-width: 100%;
@@ -1290,16 +1377,24 @@
       }
 
       .topnav {
-        min-height: 58px;
-        padding: 4px 0;
+        min-height: 46px;
+        padding: 0;
       }
 
       .brand img {
-        width: 64px;
+        width: 46px;
       }
 
       .brand-text {
         display: grid;
+      }
+
+      .brand-text strong {
+        font-size: 0.78rem;
+      }
+
+      .brand-text span {
+        font-size: 0.56rem;
       }
 
       nav a {
@@ -1314,6 +1409,10 @@
         gap: 14px;
       }
 
+      .hero {
+        padding-top: 0;
+      }
+
       .polaroids {
         min-height: 205px;
       }
@@ -1322,6 +1421,11 @@
       .p2 { top: 0; left: 30%; width: 106px; height: 132px; }
       .p3 { top: 52px; left: 14%; width: 106px; height: 132px; }
       .p4 { top: 62px; left: 48%; width: 106px; height: 132px; }
+
+      .video-section .dest-card {
+        min-width: 132px;
+        height: 186px;
+      }
 
       .modal-card {
         border-radius: 14px;
@@ -1362,6 +1466,7 @@
           <span>langkawi tour and transfer</span>
         </div>
       </div>
+      <button class="menu-toggle" id="mobileMenuToggle" type="button" aria-label="Open menu">☰</button>
       <nav>
         <ul>
           <li><a href="#home">Home</a></li>
@@ -1372,6 +1477,13 @@
         </ul>
       </nav>
     </div>
+    <div class="container mobile-nav-panel" id="mobileNavPanel">
+      <a href="#home">Home</a>
+      <a href="#offers">Promotions</a>
+      <a href="#destinations">Langkawi Spots</a>
+      <a href="#packages">Langkawi Packages</a>
+      <a href="#reviews">About Us</a>
+    </div>
   </header>
 
   <section class="hero" id="home">
@@ -1380,7 +1492,7 @@
         <p class="script">Explore Our</p>
         <h2 class="title">LANGKAWI TOUR PACKAGE</h2>
         <p>Complete Langkawi tour packages with island hopping, mangrove adventures, cable car tickets, hotel options, and transfers in a premium green-blue style.</p>
-        <a class="btn btn-main wa-cta" href="#" data-message="Hi MYKAZ SOLUTIONS, I would like to see the best Langkawi tour packages based on my budget.">EXPLORE NOW</a>
+        <a class="btn btn-main" href="#packages">EXPLORE NOW</a>
       </div>
       <div class="polaroids float-soft" data-reveal>
         <img class="polaroid p1" src="images/stack1.jpg" alt="Destination 1" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?auto=format&fit=crop&w=800&q=80';">
@@ -1710,6 +1822,22 @@
     const WHATSAPP_NO = "60194986889";
     const waLink = (msg) => `https://wa.me/${WHATSAPP_NO}?text=${encodeURIComponent(msg)}`;
     const openWhatsApp = (msg) => window.open(waLink(msg), "_blank");
+    const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+    const mobileNavPanel = document.getElementById("mobileNavPanel");
+
+    if (mobileMenuToggle && mobileNavPanel) {
+      mobileMenuToggle.addEventListener("click", () => {
+        const open = mobileNavPanel.classList.toggle("is-open");
+        mobileMenuToggle.textContent = open ? "✕" : "☰";
+      });
+
+      mobileNavPanel.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileNavPanel.classList.remove("is-open");
+          mobileMenuToggle.textContent = "☰";
+        });
+      });
+    }
 
     const revealItems = document.querySelectorAll("[data-reveal]");
     const observer = new IntersectionObserver((entries) => {

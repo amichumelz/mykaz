@@ -1166,36 +1166,40 @@
 
     @media (max-width: 760px) {
       .topnav {
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 8px 0 10px;
-        gap: 8px;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        min-height: 64px;
+        padding: 6px 0;
+        gap: 10px;
       }
 
       .brand {
-        width: 100%;
-        justify-content: center;
+        width: auto;
+        justify-content: flex-start;
       }
 
       .brand img {
-        width: 88px;
+        width: 72px;
         transform: translateY(0);
       }
 
       .brand-text {
+        display: grid;
         text-align: left;
       }
 
       .brand-text strong {
-        font-size: 0.95rem;
+        font-size: 0.88rem;
+        letter-spacing: 0.35px;
       }
 
       .brand-text span {
-        font-size: 0.7rem;
+        font-size: 0.64rem;
+        letter-spacing: 0.28px;
       }
 
       nav {
-        width: 100%;
+        display: none;
       }
 
       nav ul {
@@ -1285,8 +1289,17 @@
         width: min(1180px, 94%);
       }
 
+      .topnav {
+        min-height: 58px;
+        padding: 4px 0;
+      }
+
+      .brand img {
+        width: 64px;
+      }
+
       .brand-text {
-        display: none;
+        display: grid;
       }
 
       nav a {

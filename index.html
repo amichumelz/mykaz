@@ -692,6 +692,9 @@
       font-size: 1.55rem;
       font-weight: 800;
       text-shadow: 0 4px 10px rgba(0, 0, 0, 0.55);
+      max-width: calc(100% - 24px);
+      line-height: 1.12;
+      word-break: break-word;
     }
 
     .types-row {
@@ -1427,6 +1430,13 @@
         scroll-snap-align: center;
       }
 
+      .video-section .dest-card span {
+        font-size: 1.08rem;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+      }
+
       .video-section .dest-card:nth-child(1) {
         transform: rotate(-2.6deg) translateY(3px);
       }
@@ -2151,6 +2161,13 @@
       .video-section .dest-card {
         min-width: 132px;
         height: 186px;
+      }
+
+      .video-section .dest-card span {
+        font-size: 0.94rem;
+        left: 8px;
+        right: 8px;
+        bottom: 8px;
       }
 
       .modal-card {

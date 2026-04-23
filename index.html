@@ -1350,8 +1350,8 @@
         min-height: auto;
         padding: 8px 0 24px;
         margin-top: 0;
-        background-position: center top;
-        background-size: 100% auto;
+        background-position: center center;
+        background-size: cover;
         background-repeat: no-repeat;
       }
 
@@ -1375,6 +1375,13 @@
 
       .hero-actions {
         gap: 8px;
+      }
+
+      .hero-actions .btn {
+        min-width: 0;
+        padding: 10px 18px;
+        min-height: 42px;
+        font-size: 0.86rem;
       }
 
       .polaroids {
@@ -1471,6 +1478,17 @@
 
     body.is-rental-view .floating {
       display: none;
+    }
+
+    body.is-rental-view [data-cinematic] {
+      opacity: 1;
+      transform: none;
+      filter: none;
+    }
+
+    body.is-rental-view [data-reveal] {
+      opacity: 1;
+      transform: none;
     }
 
     .switch-view {
@@ -2097,8 +2115,8 @@
       .hero {
         padding-top: 4px;
         padding-bottom: 22px;
-        background-size: 100% auto;
-        background-position: center top;
+        background-size: cover;
+        background-position: center center;
       }
 
       .polaroids {
@@ -2139,6 +2157,17 @@
       .scroll-react {
         transform: none !important;
         opacity: 1 !important;
+      }
+
+      [data-cinematic] {
+        opacity: 1;
+        transform: none;
+        filter: none;
+      }
+
+      [data-reveal] {
+        opacity: 1;
+        transform: none;
       }
     }
 
@@ -2626,6 +2655,10 @@
       if (mainView) mainView.classList.toggle("is-active", !showRental);
       if (rentalView) rentalView.classList.toggle("is-active", showRental);
       document.body.classList.toggle("is-rental-view", showRental);
+      if (showRental && rentalView) {
+        rentalView.querySelectorAll("[data-reveal]").forEach((el) => el.classList.add("is-visible"));
+        rentalView.querySelectorAll("section[data-cinematic]").forEach((el) => el.classList.add("is-active"));
+      }
       window.scrollTo({ top: 0, behavior: "smooth" });
     };
 

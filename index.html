@@ -230,9 +230,26 @@
       border-radius: 999px;
       padding: 13px 34px;
       font-weight: 800;
+      font: inherit;
+      line-height: 1;
       text-decoration: none;
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
       cursor: pointer;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .hero-actions .btn {
+      min-width: 280px;
+      text-align: center;
     }
 
     .btn-main {
@@ -261,6 +278,33 @@
       transform: translateY(-2px) scale(1.01);
       box-shadow: 0 16px 30px rgba(11, 94, 166, 0.35);
       filter: saturate(1.1);
+    }
+
+    .btn-soft {
+      color: #0b4f84;
+      background: #eaf4ff;
+      border: 1px solid #cde2f5;
+      box-shadow: 0 8px 18px rgba(9, 66, 112, 0.12);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    }
+
+    .btn-soft:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 22px rgba(9, 66, 112, 0.18);
+      background: #deefff;
+    }
+
+    .btn-alt {
+      color: #fff;
+      background: linear-gradient(120deg, #0a4f8a, #16a085);
+      box-shadow: 0 10px 24px rgba(10, 79, 138, 0.26);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+    }
+
+    .btn-alt:hover {
+      transform: translateY(-2px) scale(1.01);
+      box-shadow: 0 16px 30px rgba(10, 79, 138, 0.34);
+      filter: saturate(1.08);
     }
 
     .polaroids {
@@ -477,6 +521,9 @@
 
     .tour-body {
       padding: 14px;
+      display: flex;
+      flex-direction: column;
+      min-height: 200px;
     }
 
     .meta {
@@ -500,10 +547,11 @@
 
     .price-row {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
       font-weight: 800;
       gap: 10px;
+      margin-top: auto;
     }
 
     .price {
@@ -1325,6 +1373,10 @@
         padding: 11px 24px;
       }
 
+      .hero-actions {
+        gap: 8px;
+      }
+
       .polaroids {
         min-height: 190px;
         margin-top: -4px;
@@ -1902,9 +1954,13 @@
       }
 
       .rental-floor {
-        width: 220vw;
-        height: 96px;
-        bottom: 46px;
+        width: 170vw;
+        height: 84px;
+        bottom: 42px;
+      }
+
+      .rental-car-img {
+        top: 0;
       }
 
       .fleet-grid {
@@ -2001,9 +2057,7 @@
       }
 
       .rental-wrap::after {
-        top: 198px;
-        right: 2%;
-        font-size: 2.2rem;
+        display: none;
       }
 
       .rental-hero {
@@ -2081,6 +2135,13 @@
       }
     }
 
+    @media (max-width: 760px) {
+      .scroll-react {
+        transform: none !important;
+        opacity: 1 !important;
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       * {
         animation: none !important;
@@ -2125,7 +2186,10 @@
         <p class="script">Explore Our</p>
         <h2 class="title">LANGKAWI TOUR PACKAGE</h2>
         <p>Complete Langkawi tour packages with island hopping, mangrove adventures, cable car tickets, hotel options, and transfers in a premium green-blue style.</p>
-        <a class="btn btn-main" href="#packages">EXPLORE NOW</a>
+        <div class="hero-actions">
+          <a class="btn btn-main" href="#packages">EXPLORE NOW</a>
+          <button class="btn btn-alt" type="button" data-target-view="rental">RENTAL CAR</button>
+        </div>
       </div>
       <div class="polaroids float-soft" data-reveal>
         <img class="polaroid p1" src="images/stack1.jpg" alt="Destination 1" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?auto=format&fit=crop&w=800&q=80';">
@@ -2728,7 +2792,7 @@
       heroObserver.observe(heroSection);
     }
 
-    const scrollReactiveItems = document.querySelectorAll(".offer, .tour-card, .dest-card, .review, .subscribe-wrap, .fleet-card, .rental-bookbar");
+    const scrollReactiveItems = document.querySelectorAll(".offer, .tour-card, .dest-card, .review, .subscribe-wrap, .fleet-card");
     scrollReactiveItems.forEach((el) => el.classList.add("scroll-react"));
 
     const runScrollReactive = () => {

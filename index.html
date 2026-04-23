@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MYKAZ SOLUTIONS | Langkawi Tour and Transfer</title>
   <style>
-    @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@1,500;1,600&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Orbitron:wght@700;800;900&family=Playfair+Display:ital,wght@1,500;1,600&display=swap");
 
     :root {
       --blue: #0b5ea6;
@@ -158,13 +158,19 @@
       list-style: none;
       display: flex;
       gap: 8px;
-      flex-wrap: wrap;
-      justify-content: center;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: center;
       padding: 6px;
       border: 1px solid rgba(9, 67, 112, 0.12);
       border-radius: 999px;
       background: rgba(255, 255, 255, 0.82);
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 10px 28px rgba(6, 41, 72, 0.08);
+    }
+
+    nav ul li {
+      display: flex;
+      align-items: center;
     }
 
     nav a {
@@ -481,8 +487,15 @@
 
     .tour-body h4 {
       font-size: 1.03rem;
-      min-height: 84px;
+      min-height: 0;
+      margin-bottom: 6px;
+    }
+
+    .tour-rating {
       margin-bottom: 10px;
+      color: #f4b400;
+      font-size: 0.86rem;
+      font-weight: 800;
     }
 
     .price-row {
@@ -1256,6 +1269,23 @@
         background: rgba(11, 94, 166, 0.08);
       }
 
+      .mobile-nav-panel .switch-view {
+        width: 100%;
+        text-align: left;
+        border: 0;
+        background: transparent;
+        color: #20384b;
+        font-size: 0.9rem;
+        font-weight: 700;
+        padding: 10px 8px;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+
+      .mobile-nav-panel .switch-view:hover {
+        background: rgba(11, 94, 166, 0.08);
+      }
+
       nav ul {
         justify-content: center;
         gap: 10px;
@@ -1270,7 +1300,7 @@
 
       .hero {
         min-height: auto;
-        padding: 18px 0 26px;
+        padding: 8px 0 24px;
         margin-top: 0;
         background-position: center top;
         background-size: 100% auto;
@@ -1379,6 +1409,551 @@
       }
     }
 
+    .site-view {
+      display: none;
+    }
+
+    .site-view.is-active {
+      display: block;
+    }
+
+    body.is-rental-view .floating {
+      display: none;
+    }
+
+    .switch-view {
+      font-family: inherit;
+      line-height: 1;
+      display: inline-block;
+      margin: 0;
+      appearance: none;
+      border: 0;
+      background: transparent;
+      color: #30363b;
+      font-size: 0.9rem;
+      font-weight: 700;
+      padding: 9px 13px;
+      border-radius: 999px;
+      transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .switch-view:hover {
+      color: var(--blue);
+      background: rgba(11, 94, 166, 0.1);
+      transform: translateY(-1px);
+    }
+
+    .rental-wrap {
+      background:
+        radial-gradient(circle at 12% 4%, #e8f3ff 0%, #f6fbff 32%, #ffffff 60%),
+        radial-gradient(circle at 88% 12%, #e7f8f2 0%, #f5fcf9 30%, transparent 62%);
+      min-height: 100vh;
+      padding-bottom: 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .rental-wrap::after {
+      content: "✶";
+      position: absolute;
+      right: 11%;
+      top: 260px;
+      font-size: 4.2rem;
+      color: #efbf3d;
+      opacity: 0.9;
+      transform: rotate(16deg);
+      pointer-events: none;
+    }
+
+    .rental-container {
+      width: min(1160px, 93%);
+      margin: 0 auto;
+    }
+
+    .rental-hero {
+      text-align: center;
+      padding: 26px 0 10px;
+    }
+
+    .rental-hero h1 {
+      font-family: "Orbitron", "Montserrat", Arial, sans-serif;
+      font-size: clamp(2rem, 5vw, 4rem);
+      line-height: 0.92;
+      letter-spacing: 0.02em;
+      margin-bottom: 24px;
+    }
+
+    .rental-bookbar {
+      background: #fff;
+      border-radius: 6px;
+      border: 1px solid #e6e6e6;
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 170px;
+      align-items: center;
+      overflow: hidden;
+      margin: 0 auto 20px;
+      max-width: 900px;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .rental-col {
+      padding: 16px 18px;
+      border-right: 1px solid #ececec;
+      text-align: left;
+    }
+
+    .rental-col label {
+      display: block;
+      color: #1f252a;
+      font-size: 0.72rem;
+      font-weight: 800;
+      margin-bottom: 5px;
+    }
+
+    .rental-input {
+      width: 100%;
+      border: 1px solid #d7dce2;
+      border-radius: 8px;
+      padding: 9px 10px;
+      font: inherit;
+      font-size: 0.9rem;
+      color: #1f252a;
+      background: #fff;
+    }
+
+    .rental-input + .rental-input {
+      margin-top: 8px;
+    }
+
+    .rental-search {
+      width: calc(100% - 24px);
+      height: 44px;
+      margin: 0 12px;
+      border: 0;
+      border-radius: 8px;
+      background: #111820;
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, background-color 0.22s ease;
+    }
+
+    .rental-search:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 18px rgba(8, 12, 16, 0.25);
+      background: #0a1118;
+    }
+
+    .rental-car-stage {
+      position: relative;
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto 8px;
+      isolation: isolate;
+      padding-bottom: 0;
+      overflow: visible;
+    }
+
+    .rental-floor {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 54px;
+      width: 210vw;
+      height: 140px;
+      background: linear-gradient(90deg, #0b5ea6 0%, #2f86c9 46%, #118a68 100%);
+      clip-path: polygon(0 100%, 50% 0, 100% 100%);
+      z-index: 0;
+      filter: drop-shadow(0 -8px 16px rgba(8, 61, 107, 0.28));
+    }
+
+    .rental-floor::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 12px;
+      width: 34%;
+      height: 52px;
+      clip-path: polygon(50% 0, 100% 100%, 0 100%);
+      background: linear-gradient(180deg, rgba(214, 240, 255, 0.7) 0%, rgba(214, 240, 255, 0) 100%);
+      opacity: 0.5;
+    }
+
+    .rental-car-stage::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 56px;
+      width: 62%;
+      height: 28px;
+      background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.34) 0%, rgba(0, 0, 0, 0.16) 45%, rgba(0, 0, 0, 0) 72%);
+      filter: blur(6px);
+      z-index: 1;
+      animation: carShadowPulse 5s ease-in-out infinite;
+    }
+
+    .rental-car-img {
+      width: 100%;
+      max-width: 1000px;
+      display: block;
+      margin: 0 auto;
+      object-fit: contain;
+      object-position: center bottom;
+      position: relative;
+      z-index: 2;
+      margin-bottom: -4px;
+      top: 18px;
+      animation: carFloat 5s ease-in-out infinite;
+    }
+
+    .rental-gallery {
+      margin-top: 22px;
+      padding: 20px;
+      background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
+      border: 1px solid #e6edf5;
+      border-radius: 20px;
+      box-shadow: 0 16px 30px rgba(11, 49, 84, 0.09);
+    }
+
+    .rental-gallery-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .rental-gallery h3 {
+      margin-bottom: 4px;
+      font-size: 1.2rem;
+      color: #1f252a;
+    }
+
+    .rental-gallery p {
+      color: #68717b;
+      font-size: 0.9rem;
+    }
+
+    .rental-gallery-chip {
+      border: 1px solid #d8e6f5;
+      background: #f3f8ff;
+      color: #1d4f79;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
+    .rental-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .rental-fleet-list {
+      margin-bottom: 14px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px 12px;
+      padding: 12px;
+      border: 1px solid #e3ebf5;
+      border-radius: 12px;
+      background: #f7fbff;
+    }
+
+    .rental-fleet-list span {
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: #2c3a48;
+    }
+
+    .rental-gallery-item {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid #e5edf5;
+      background: #fff;
+      min-height: 140px;
+      position: relative;
+      box-shadow: 0 10px 18px rgba(10, 40, 68, 0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .rental-gallery-item img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+
+    .rental-gallery-item figcaption {
+      padding: 10px 11px;
+      font-size: 0.83rem;
+      font-weight: 700;
+      color: #2f3c4a;
+      background: linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+    }
+
+    .rental-gallery-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 28px rgba(8, 44, 74, 0.14);
+    }
+
+    .rental-gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .fleet-title {
+      text-align: center;
+      font-family: "Orbitron", "Montserrat", Arial, sans-serif;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 0.95;
+      margin: 8px 0 26px;
+    }
+
+    .fleet-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .fleet-card {
+      position: relative;
+      height: 250px;
+      border-radius: 18px;
+      overflow: hidden;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
+    }
+
+    .fleet-card:hover {
+      transform: translateY(-6px) scale(1.01);
+      box-shadow: 0 18px 30px rgba(9, 18, 28, 0.2);
+      filter: saturate(1.06);
+    }
+
+    .fleet-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .fleet-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(8, 12, 16, 0.1), rgba(8, 12, 16, 0.65));
+    }
+
+    .fleet-label {
+      position: absolute;
+      left: 16px;
+      top: 14px;
+      font-family: "Orbitron", "Montserrat", Arial, sans-serif;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .fleet-arrow {
+      position: absolute;
+      left: 18px;
+      bottom: 14px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      display: grid;
+      place-items: center;
+      font-size: 1.2rem;
+      font-weight: 700;
+      background: rgba(10, 15, 22, 0.12);
+      cursor: pointer;
+      transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+    }
+
+    .fleet-arrow:hover {
+      transform: translateX(3px);
+      background: rgba(10, 15, 22, 0.32);
+      border-color: rgba(255, 255, 255, 0.94);
+    }
+
+    body.is-rental-view .rental-hero h1 {
+      animation: fadeUpIn 0.7s ease both;
+    }
+
+    body.is-rental-view .rental-bookbar {
+      animation: fadeUpIn 0.8s ease 0.08s both;
+    }
+
+    body.is-rental-view .rental-car-stage {
+      animation: fadeUpIn 0.9s ease 0.16s both;
+    }
+
+    body.is-rental-view .fleet-card:nth-child(1) { animation: fadeUpIn 0.7s ease 0.04s both; }
+    body.is-rental-view .fleet-card:nth-child(2) { animation: fadeUpIn 0.7s ease 0.1s both; }
+    body.is-rental-view .fleet-card:nth-child(3) { animation: fadeUpIn 0.7s ease 0.16s both; }
+    body.is-rental-view .fleet-card:nth-child(4) { animation: fadeUpIn 0.7s ease 0.22s both; }
+
+    @keyframes fadeUpIn {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes carFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
+    @keyframes carShadowPulse {
+      0%, 100% { opacity: 0.75; transform: translateX(-50%) scaleX(1); }
+      50% { opacity: 0.52; transform: translateX(-50%) scaleX(0.95); }
+    }
+
+    @media (max-width: 900px) {
+      .rental-wrap::after {
+        right: 4%;
+        top: 220px;
+        font-size: 2.8rem;
+      }
+
+      .rental-bookbar {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .rental-col {
+        min-height: 72px;
+        border-bottom: 1px solid #ececec;
+      }
+
+      .rental-col:nth-child(2) {
+        border-right: 0;
+      }
+
+      .rental-search {
+        margin: 10px 12px;
+      }
+
+      .rental-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .rental-fleet-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 600px) {
+      .rental-hero {
+        padding-top: 12px;
+      }
+
+      .rental-hero h1 {
+        font-size: clamp(1.65rem, 8.6vw, 2.2rem);
+        margin-bottom: 16px;
+      }
+
+      .rental-bookbar {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+      }
+
+      .rental-col {
+        padding: 12px 14px;
+        border-right: 0;
+        min-height: auto;
+      }
+
+      .rental-col small {
+        font-size: 0.68rem;
+      }
+
+      .rental-col label {
+        font-size: 0.68rem;
+      }
+
+      .rental-car-img {
+        max-width: 100%;
+      }
+
+      .rental-car-stage {
+        margin-top: 12px;
+        margin-bottom: 4px;
+        padding-bottom: 0;
+      }
+
+      .rental-floor {
+        width: 220vw;
+        height: 96px;
+        bottom: 46px;
+      }
+
+      .fleet-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .fleet-title {
+        font-size: clamp(1.5rem, 8vw, 2rem);
+        margin-top: 10px;
+      }
+
+      .fleet-card {
+        height: 220px;
+        border-radius: 14px;
+      }
+
+      .fleet-label {
+        font-size: 1.65rem;
+        top: 12px;
+        left: 12px;
+      }
+
+      .fleet-arrow {
+        left: 14px;
+        bottom: 12px;
+      }
+
+      .rental-gallery {
+        padding: 12px;
+      }
+
+      .rental-gallery-head {
+        display: block;
+      }
+
+      .rental-gallery-chip {
+        display: inline-flex;
+        margin-top: 6px;
+      }
+
+      .rental-gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .rental-fleet-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 520px) {
       .container {
         width: min(1180px, 94%);
@@ -1417,12 +1992,56 @@
         font-size: 0.88rem;
       }
 
+      .rental-container {
+        width: min(1180px, 95%);
+      }
+
+      .rental-wrap {
+        padding-bottom: 36px;
+      }
+
+      .rental-wrap::after {
+        top: 198px;
+        right: 2%;
+        font-size: 2.2rem;
+      }
+
+      .rental-hero {
+        padding-bottom: 2px;
+      }
+
+      .rental-bookbar {
+        border-radius: 8px;
+      }
+
+      .rental-search {
+        width: calc(100% - 24px);
+        margin: 10px 12px 12px;
+        border-radius: 9px;
+      }
+
+      .fleet-title {
+        margin-bottom: 16px;
+      }
+
+      .fleet-grid {
+        gap: 10px;
+      }
+
+      .fleet-card {
+        height: 190px;
+      }
+
+      .fleet-label {
+        font-size: 1.35rem;
+      }
+
       .hero-wrap {
         gap: 14px;
       }
 
       .hero {
-        padding-top: 14px;
+        padding-top: 4px;
         padding-bottom: 22px;
         background-size: 100% auto;
         background-position: center top;
@@ -1485,22 +2104,21 @@
       <nav>
         <ul>
           <li><a href="#home">Home</a></li>
-          <li><a href="#offers">Promotions</a></li>
-          <li><a href="#destinations">Langkawi Spots</a></li>
-          <li><a href="#packages">Langkawi Packages</a></li>
+          <li><a href="#packages">Tours</a></li>
+          <li><button class="switch-view" type="button" data-target-view="rental">Rental</button></li>
           <li><a href="#reviews">About Us</a></li>
         </ul>
       </nav>
     </div>
     <div class="container mobile-nav-panel" id="mobileNavPanel">
       <a href="#home">Home</a>
-      <a href="#offers">Promotions</a>
-      <a href="#destinations">Langkawi Spots</a>
-      <a href="#packages">Langkawi Packages</a>
+      <a href="#packages">Tours</a>
+      <button class="switch-view" type="button" data-target-view="rental">Rental</button>
       <a href="#reviews">About Us</a>
     </div>
   </header>
 
+  <div id="mainView" class="site-view is-active">
   <section class="hero" id="home">
     <div class="container hero-wrap">
       <div data-reveal>
@@ -1522,34 +2140,34 @@
     <div class="container">
       <div style="text-align:center" data-reveal>
         <p class="script">Don't miss our</p>
-        <h2 class="title">Special Offers (Exclusive)</h2>
+        <h2 class="title">Special Service Offers</h2>
       </div>
       <div class="offers-grid" data-reveal>
         <article class="offer" data-reveal>
-          <img src="https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?auto=format&fit=crop&w=1200&q=80" alt="Private Yacht Sunset">
-          <span class="badge">LIMITED · VIP</span>
+          <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=1200&q=80" alt="Driver service chauffeur driving car" onerror="this.onerror=null;this.src='images/car.png';">
+          <span class="badge">SERVICE · POPULAR</span>
           <div class="offer-content">
-            <h4>Private Yacht Sunset Experience</h4>
-            <p>Premium sunset cruise with a photo session and welcome drinks for couples or small groups.</p>
-            <button class="offer-link wa-cta" type="button" data-message="Hi MYKAZ SOLUTIONS, I want details for the EXCLUSIVE Private Yacht Sunset Experience offer.">Unlock Offer →</button>
+            <h4>Driver Service / Chauffeur</h4>
+            <p>Private driver with flexible city route for sightseeing, shopping stops, and family-friendly transport.</p>
+            <button class="offer-link open-package-modal" type="button" data-package="Driver Service / Chauffeur" data-price="Price on request" data-details="Private driver with flexible city route for sightseeing, shopping stops, and family-friendly transport.">Get Service →</button>
           </div>
         </article>
         <article class="offer" data-reveal>
-          <img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1200&q=80" alt="Luxury Escape Resort">
-          <span class="badge">LIMITED · PREMIUM</span>
+          <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=80" alt="Hotel and airport transfer car service">
+          <span class="badge">SERVICE · ADVENTURE</span>
           <div class="offer-content">
-            <h4>Langkawi Luxury Escape 4D3N</h4>
-            <p>Premium resort stay, private transport, and chef-special dinner. Very limited slots.</p>
-            <button class="offer-link wa-cta" type="button" data-message="Hi MYKAZ SOLUTIONS, I want details for the EXCLUSIVE Langkawi Luxury Escape 4D3N offer.">Unlock Offer →</button>
+            <h4>Hotel and Airport Transfer</h4>
+            <p>Reliable transfer service between hotel and airport with comfortable rides and punctual pickup timing.</p>
+            <button class="offer-link open-package-modal" type="button" data-package="Hotel and Airport Transfer" data-price="Price on request" data-details="Reliable transfer service between hotel and airport with comfortable rides and punctual pickup timing.">Get Service →</button>
           </div>
         </article>
         <article class="offer" data-reveal>
-          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80" alt="Corporate Retreat">
-          <span class="badge">LIMITED · EXECUTIVE</span>
+          <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80" alt="Hotel shuttle car service">
+          <span class="badge">SERVICE · TRANSFER</span>
           <div class="offer-content">
-            <h4>Corporate Retreat Exclusive Deal</h4>
-            <p>Team-building package with meeting setup and island activities for corporate groups.</p>
-            <button class="offer-link wa-cta" type="button" data-message="Hi MYKAZ SOLUTIONS, I want details for the Corporate Retreat Exclusive Deal.">Unlock Offer →</button>
+            <h4>Hotel Shuttle</h4>
+            <p>Convenient hotel shuttle service for guest movement around Langkawi with smooth and timely pickup.</p>
+            <button class="offer-link open-package-modal" type="button" data-package="Hotel Shuttle" data-price="Price on request" data-details="Convenient hotel shuttle service for guest movement around Langkawi with smooth and timely pickup.">Get Service →</button>
           </div>
         </article>
       </div>
@@ -1561,40 +2179,44 @@
     <div class="container">
       <div style="text-align:center" data-reveal>
         <p class="script">What's new</p>
-        <h2 class="title">Popular Langkawi Tours</h2>
+        <h2 class="title">Popular Langkawi Packages</h2>
       </div>
 
       <div class="tour-grid">
         <article class="tour-card" data-reveal>
-          <img src="images/stack1.jpg" alt="Langkawi Island Hopping">
+          <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1200&q=80" alt="Langkawi city tour">
           <div class="tour-body">
-            <p class="meta">1 day · 2 pax</p>
-            <h4>1D Langkawi Island Hopping Discovery</h4>
-            <div class="price-row"><span class="price">RM290</span><button class="link-btn open-package-modal" type="button" data-package="1D Langkawi Island Hopping Discovery" data-price="RM290" data-details="Island hopping boat, iconic photo spots, and relaxing beach moments in one day.">Explore →</button></div>
+            <p class="meta">Service</p>
+            <h4>Langkawi City Tour</h4>
+            <p class="tour-rating">★★★★★ 4.9</p>
+            <div class="price-row"><button class="link-btn open-package-modal" type="button" data-package="Langkawi City Tour" data-price="Price on request" data-details="Guided city highlights around Langkawi with flexible stops and comfortable transport.">Explore →</button></div>
           </div>
         </article>
         <article class="tour-card" data-reveal>
-          <img src="images/stack2.jpg" alt="Langkawi Mangrove Tour">
+          <img src="images/mangrove-tour.png" alt="Mangrove boat tour in Langkawi">
           <div class="tour-body">
-            <p class="meta">1 day · 2 pax</p>
-            <h4>1D Langkawi Mangrove + Kilim + ATV Adventure</h4>
-            <div class="price-row"><span class="price">RM340</span><button class="link-btn open-package-modal" type="button" data-package="1D Langkawi Mangrove + Kilim + ATV Adventure" data-price="RM340" data-details="Kilim geoforest boat ride, eagle feeding, cave stop, and ATV experience in one day.">Explore →</button></div>
+            <p class="meta">Service</p>
+            <h4>Mangrove Boat Tour</h4>
+            <p class="tour-rating">★★★★★ 4.8</p>
+            <div class="price-row"><button class="link-btn open-package-modal" type="button" data-package="Mangrove Boat Tour" data-price="Price on request" data-details="Explore Langkawi mangrove routes with scenic nature spots and guided boat experience.">Explore →</button></div>
           </div>
         </article>
         <article class="tour-card" data-reveal>
-          <img src="images/stack4.jpg" alt="Langkawi SkyCab and SkyBridge">
+          <img src="images/atv-tour.png" alt="ATV tour adventure ride">
           <div class="tour-body">
-            <p class="meta">1 day · 2 pax</p>
-            <h4>1D SkyCab + SkyBridge + City Highlights Tour</h4>
-            <div class="price-row"><span class="price">RM390</span><button class="link-btn open-package-modal" type="button" data-package="1D SkyCab + SkyBridge + City Highlights Tour" data-price="RM390" data-details="SkyCab, SkyBridge, and city highlights with convenient transport in one day.">Explore →</button></div>
+            <p class="meta">Service</p>
+            <h4>ATV Tour</h4>
+            <p class="tour-rating">★★★★★ 4.7</p>
+            <div class="price-row"><button class="link-btn open-package-modal" type="button" data-package="ATV Tour" data-price="Price on request" data-details="Adventure ATV route suitable for couples, friends, and group travelers in Langkawi.">Explore →</button></div>
           </div>
         </article>
         <article class="tour-card" data-reveal>
-          <img src="images/stack3.jpg" alt="Langkawi Romantic Couple Experience">
+          <img src="images/stack4.jpg" alt="Island hopping">
           <div class="tour-body">
-            <p class="meta">1 day · 2 pax</p>
-            <h4>1D Langkawi Romantic Couple Experience</h4>
-            <div class="price-row"><span class="price">RM450</span><button class="link-btn open-package-modal" type="button" data-package="1D Langkawi Romantic Couple Experience" data-price="RM450" data-details="Private couple experience with sunset views and romantic setup in one day.">Explore →</button></div>
+            <p class="meta">Service</p>
+            <h4>Island Hopping</h4>
+            <p class="tour-rating">★★★★★ 4.9</p>
+            <div class="price-row"><button class="link-btn open-package-modal" type="button" data-package="Island Hopping" data-price="Price on request" data-details="Popular island hopping experience covering top photo spots and relaxing beach stops.">Explore →</button></div>
           </div>
         </article>
       </div>
@@ -1622,7 +2244,7 @@
           <span>Pantai Cenang</span>
         </article>
         <article class="dest-card" data-reveal>
-          <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1000&q=80" alt="SkyBridge">
+          <img src="images/skybridge.png" alt="SkyBridge">
           <span>SkyBridge</span>
         </article>
         <article class="dest-card" data-reveal>
@@ -1689,7 +2311,7 @@
             <div class="gallery-item"><img src="images/stack3.jpg" alt="gallery 3"></div>
             <div class="gallery-item"><img src="images/stack4.jpg" alt="gallery 4"></div>
             <div class="gallery-item"><img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=1000&q=80" alt="gallery 5"></div>
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1526481280695-3c46945f538c?auto=format&fit=crop&w=1000&q=80" alt="gallery 6"></div>
+            <div class="gallery-item"><img src="images/gallery-6.png" alt="gallery 6" onerror="this.onerror=null;this.src='images/stack4.jpg';"></div>
           </div>
         </div>
         <div class="carousel-dots" id="galleryDots" aria-label="Gallery slider dots"></div>
@@ -1700,8 +2322,8 @@
   <section class="section" id="booking">
     <div class="container" data-reveal>
       <p class="script">Book instantly</p>
-      <h2 class="title">Langkawi Package Booking Form</h2>
-      <p class="sub">Fill in your details, submit, and your Langkawi package inquiry will be sent directly to our WhatsApp sales team.</p>
+      <h2 class="title">Langkawi Service Booking Form</h2>
+      <p class="sub">Fill in your details and your service inquiry will be sent directly to our WhatsApp sales team.</p>
 
       <div class="booking-wrap">
         <form id="bookingForm" class="booking-form">
@@ -1709,24 +2331,27 @@
           <input id="bookPhone" type="tel" placeholder="Phone number (example: 019xxxxxxx)" required>
           <input id="bookEmail" type="email" placeholder="Email" required>
           <select id="bookDestination" required>
-            <option value="">Select destination</option>
-            <option>Pantai Cenang</option>
-            <option>Kilim Geoforest Park</option>
-            <option>Langkawi SkyCab & SkyBridge</option>
+            <option value="">Select service</option>
+            <option>Driver service / chauffeur</option>
+            <option>Langkawi city tour</option>
+            <option>Mangrove boat tour</option>
+            <option>ATV tour</option>
             <option>Island Hopping</option>
-            <option>Sunset Cruise</option>
-            <option>Custom Langkawi Tour</option>
+            <option>Hotel and airport transfer</option>
+            <option>Hotel shuttle</option>
+            <option>Car and van rental</option>
           </select>
           <input id="bookDate" type="date" required>
           <input id="bookPax" type="number" min="1" placeholder="Number of pax" required>
           <input id="bookBudget" type="text" placeholder="Estimated budget (example: RM3000/pax)">
           <select id="bookType" required>
-            <option value="">Trip type</option>
+            <option value="">Booking type</option>
             <option>Honeymoon</option>
             <option>Family</option>
             <option>Company Trip</option>
             <option>Private Tour</option>
-            <option>Island Hopping</option>
+            <option>Airport Transfer</option>
+            <option>Rental</option>
           </select>
           <input id="bookDuration" type="text" placeholder="Trip duration (example: 5 days 4 nights)">
           <textarea id="bookNotes" placeholder="Additional requests (hotel, halal food, stroller, etc.)"></textarea>
@@ -1766,6 +2391,97 @@
       <div class="copy">Copyright &copy; 2026 MYKAZ SOLUTIONS. All rights reserved.</div>
     </div>
   </footer>
+  </div>
+
+  <div id="rentalView" class="site-view rental-wrap">
+    <section class="rental-hero">
+      <div class="rental-container">
+        <h1 class="title">PREMIUM CAR<br>RENTAL</h1>
+        <div class="rental-bookbar" data-reveal>
+          <div class="rental-col">
+            <label for="rentalPickupDate">Pickup date & time</label>
+            <input id="rentalPickupDate" class="rental-input" type="date">
+            <select id="rentalPickupHour" class="rental-input">
+              <option value="">Select pickup time</option>
+            </select>
+          </div>
+          <div class="rental-col">
+            <label for="rentalReturnDate">Return date & time</label>
+            <input id="rentalReturnDate" class="rental-input" type="date">
+            <select id="rentalReturnHour" class="rental-input">
+              <option value="">Select return time</option>
+            </select>
+          </div>
+          <div class="rental-col">
+            <label for="rentalModel">Model</label>
+            <select id="rentalModel" class="rental-input">
+              <option value="">Select model</option>
+              <option value="Toyota Hiace Van">Toyota Hiace Van</option>
+              <option value="Toyota Innova Zenix">Toyota Innova Zenix</option>
+              <option value="Nissan Serena">Nissan Serena</option>
+              <option value="Toyota Avanza">Toyota Avanza</option>
+              <option value="Honda City">Honda City</option>
+              <option value="Mitsubishi Mirage">Mitsubishi Mirage</option>
+              <option value="Toyota Vios">Toyota Vios</option>
+              <option value="Perodua Myvi">Perodua Myvi</option>
+              <option value="Toyota Sienta">Toyota Sienta</option>
+            </select>
+          </div>
+          <button id="rentalSearchBtn" class="rental-search" type="button">Book Now</button>
+        </div>
+        <div class="rental-car-stage">
+          <div class="rental-floor" aria-hidden="true"></div>
+          <img class="rental-car-img" src="images/car.png" alt="Premium yellow SUV car">
+        </div>
+        <div class="rental-gallery" data-reveal>
+          <div class="rental-gallery-head">
+            <div>
+              <h3>Available Cars Gallery</h3>
+              <p>Choose your preferred vehicle for airport transfer, city rides, or group travel.</p>
+            </div>
+            <span class="rental-gallery-chip">Price Range: RM100 - RM450</span>
+          </div>
+          <div class="rental-fleet-list">
+            <span>Hiace Van</span>
+            <span>Innova Zenix</span>
+            <span>Nissan Serena</span>
+            <span>Avanza</span>
+            <span>Honda City</span>
+            <span>Mitsubishi Mirage</span>
+            <span>Toyota Vios</span>
+            <span>Myvi</span>
+            <span>Toyota Sienta</span>
+          </div>
+          <div class="rental-gallery-grid">
+            <figure class="rental-gallery-item">
+              <img src="images/gallery-1.png" alt="Rental car gallery 1" onerror="this.onerror=null;this.src='images/car.png';">
+              <figcaption>Toyota Vellfire</figcaption>
+            </figure>
+            <figure class="rental-gallery-item">
+              <img src="images/gallery-2.png" alt="Rental car gallery 2" onerror="this.onerror=null;this.src='images/car.png';">
+              <figcaption>Toyota Vellfire (Rear)</figcaption>
+            </figure>
+            <figure class="rental-gallery-item">
+              <img src="images/gallery-3.png" alt="Rental car gallery 3" onerror="this.onerror=null;this.src='images/car.png';">
+              <figcaption>Toyota Avanza</figcaption>
+            </figure>
+            <figure class="rental-gallery-item">
+              <img src="images/gallery-4.png" alt="Rental car gallery 4" onerror="this.onerror=null;this.src='images/car.png';">
+              <figcaption>Toyota Hiace</figcaption>
+            </figure>
+            <figure class="rental-gallery-item">
+              <img src="images/gallery-5.png" alt="Rental car gallery 5" onerror="this.onerror=null;this.src='images/car.png';">
+              <figcaption>Toyota Hiace (Back View)</figcaption>
+            </figure>
+            <figure class="rental-gallery-item">
+              <img src="images/gallery-6.png" alt="Rental car gallery 6" onerror="this.onerror=null;this.src='images/car.png';">
+              <figcaption>Toyota Innova</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 
   <div class="floating">
     <a class="fab top" href="#home" title="Back to top">⌃</a>
@@ -1825,9 +2541,8 @@
               <option>6+ pax</option>
             </select>
           </div>
-          <div id="modalLivePrice" class="live-price">Estimated total: RM0</div>
           <textarea id="modalBookingNotes" class="modal-note" placeholder="Additional requests (pickup, stroller, meals, etc.)"></textarea>
-          <button class="btn btn-main" type="submit">Book This Package (WhatsApp)</button>
+          <button class="btn btn-main" type="submit">Book Now (WhatsApp)</button>
         </form>
       </div>
     </div>
@@ -1839,6 +2554,120 @@
     const openWhatsApp = (msg) => window.open(waLink(msg), "_blank");
     const mobileMenuToggle = document.getElementById("mobileMenuToggle");
     const mobileNavPanel = document.getElementById("mobileNavPanel");
+    const mainView = document.getElementById("mainView");
+    const rentalView = document.getElementById("rentalView");
+
+    const setActiveView = (viewName) => {
+      const showRental = viewName === "rental";
+      if (mainView) mainView.classList.toggle("is-active", !showRental);
+      if (rentalView) rentalView.classList.toggle("is-active", showRental);
+      document.body.classList.toggle("is-rental-view", showRental);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
+    document.querySelectorAll("[data-target-view]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        setActiveView(btn.dataset.targetView);
+        if (mobileNavPanel) mobileNavPanel.classList.remove("is-open");
+        if (mobileMenuToggle) mobileMenuToggle.textContent = "☰";
+      });
+    });
+
+    const rentalSearchBtn = document.getElementById("rentalSearchBtn");
+    const rentalPickupDate = document.getElementById("rentalPickupDate");
+    const rentalPickupHour = document.getElementById("rentalPickupHour");
+    const rentalReturnDate = document.getElementById("rentalReturnDate");
+    const rentalReturnHour = document.getElementById("rentalReturnHour");
+    const rentalModel = document.getElementById("rentalModel");
+
+    const formatDateTime = (dateValue, hourValue) => {
+      if (!dateValue || !hourValue) return "-";
+      const date = new Date(`${dateValue}T${hourValue}:00`);
+      if (Number.isNaN(date.getTime())) return `${dateValue} ${hourValue}`;
+      return new Intl.DateTimeFormat("en-MY", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit"
+      }).format(date);
+    };
+
+    if (rentalPickupDate && rentalPickupHour && rentalReturnDate && rentalReturnHour) {
+      const now = new Date();
+      const pickupDefault = new Date(now.getTime() + 60 * 60 * 1000);
+      const returnDefault = new Date(now.getTime() + 25 * 60 * 60 * 1000);
+      const fmtDate = (d) => {
+        const offset = d.getTimezoneOffset();
+        return new Date(d.getTime() - offset * 60 * 1000).toISOString().slice(0, 10);
+      };
+      const fmtHour = (d) => String(d.getHours()).padStart(2, "0") + ":00";
+      const buildHourOptions = (selectEl) => {
+        for (let h = 0; h < 24; h += 1) {
+          const v = String(h).padStart(2, "0") + ":00";
+          const opt = document.createElement("option");
+          opt.value = v;
+          opt.textContent = v;
+          selectEl.appendChild(opt);
+        }
+      };
+
+      buildHourOptions(rentalPickupHour);
+      buildHourOptions(rentalReturnHour);
+      rentalPickupDate.value = fmtDate(pickupDefault);
+      rentalPickupHour.value = fmtHour(pickupDefault);
+      rentalReturnDate.value = fmtDate(returnDefault);
+      rentalReturnHour.value = fmtHour(returnDefault);
+      rentalPickupDate.min = fmtDate(now);
+      rentalReturnDate.min = rentalPickupDate.value;
+
+      rentalPickupDate.addEventListener("change", () => {
+        rentalReturnDate.min = rentalPickupDate.value;
+        if (rentalReturnDate.value && rentalReturnDate.value < rentalPickupDate.value) {
+          rentalReturnDate.value = rentalPickupDate.value;
+        }
+      });
+    }
+
+    if (rentalSearchBtn) {
+      rentalSearchBtn.addEventListener("click", () => {
+        const pickupDate = rentalPickupDate?.value || "";
+        const pickupHour = rentalPickupHour?.value || "";
+        const returnDate = rentalReturnDate?.value || "";
+        const returnHour = rentalReturnHour?.value || "";
+        const model = rentalModel?.value || "";
+
+        if (!pickupDate || !pickupHour || !returnDate || !returnHour || !model) {
+          alert("Please complete pickup date/time, return date/time, and model.");
+          return;
+        }
+
+        const pickupDateTime = new Date(`${pickupDate}T${pickupHour}:00`);
+        const returnDateTime = new Date(`${returnDate}T${returnHour}:00`);
+        if (Number.isNaN(pickupDateTime.getTime()) || Number.isNaN(returnDateTime.getTime())) {
+          alert("Please select valid booking date and time.");
+          return;
+        }
+        if (returnDateTime < pickupDateTime) {
+          alert("Return date/time must be after pickup date/time.");
+          return;
+        }
+
+        const msg = [
+          "Hi MYKAZ SOLUTIONS, I want to book a rental.",
+          `Pickup: ${formatDateTime(pickupDate, pickupHour)}`,
+          `Return: ${formatDateTime(returnDate, returnHour)}`,
+          `Model: ${model}`
+        ].join("\n");
+        openWhatsApp(msg);
+      });
+    }
+
+    document.querySelectorAll("header a[href^='#']").forEach((link) => {
+      link.addEventListener("click", () => {
+        setActiveView("main");
+      });
+    });
 
     if (mobileMenuToggle && mobileNavPanel) {
       mobileMenuToggle.addEventListener("click", () => {
@@ -1846,7 +2675,7 @@
         mobileMenuToggle.textContent = open ? "✕" : "☰";
       });
 
-      mobileNavPanel.querySelectorAll("a").forEach((link) => {
+      mobileNavPanel.querySelectorAll("a, button").forEach((link) => {
         link.addEventListener("click", () => {
           mobileNavPanel.classList.remove("is-open");
           mobileMenuToggle.textContent = "☰";
@@ -1899,7 +2728,7 @@
       heroObserver.observe(heroSection);
     }
 
-    const scrollReactiveItems = document.querySelectorAll(".offer, .tour-card, .dest-card, .review, .subscribe-wrap");
+    const scrollReactiveItems = document.querySelectorAll(".offer, .tour-card, .dest-card, .review, .subscribe-wrap, .fleet-card, .rental-bookbar");
     scrollReactiveItems.forEach((el) => el.classList.add("scroll-react"));
 
     const runScrollReactive = () => {
@@ -2045,11 +2874,82 @@
     const modalBookingTime = document.getElementById("modalBookingTime");
     const modalBookingPax = document.getElementById("modalBookingPax");
     const modalBookingNotes = document.getElementById("modalBookingNotes");
-    const modalLivePrice = document.getElementById("modalLivePrice");
     let activePackage = "";
     let activePrice = "";
     const packageCatalog = {
-      "1D Langkawi Island Hopping Discovery": {
+      "Driver Service / Chauffeur": {
+        duration: "By request",
+        suitable: "Family / Group / Corporate",
+        slots: "Daily availability",
+        pickup: "Hotel / Airport / Custom point",
+        start: "Flexible timing",
+        bestFor: "Private chauffeur service",
+        summary: "Private driver service with comfortable transport and flexible route planning around Langkawi.",
+        includes: ["Professional driver", "Air-conditioned vehicle", "Flexible stop points", "Basic itinerary support"],
+        excludes: ["Entrance tickets", "Meals", "Personal expenses"],
+        cover: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=1200&q=80"
+      },
+      "Hotel and Airport Transfer": {
+        duration: "Per trip",
+        suitable: "All travelers",
+        slots: "24/7 by booking",
+        pickup: "Airport / Hotel lobby",
+        start: "Based on flight schedule",
+        bestFor: "Smooth arrival and departure transfer",
+        summary: "Reliable point-to-point transfer between Langkawi airport and your hotel with timely pickup.",
+        includes: ["Meet and transfer service", "Comfortable vehicle", "Luggage assistance", "Direct route transfer"],
+        excludes: ["Extra waiting outside booked time", "Additional destination stops", "Personal expenses"],
+        cover: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=80"
+      },
+      "Hotel Shuttle": {
+        duration: "By schedule",
+        suitable: "Hotel guests / groups",
+        slots: "Daily availability",
+        pickup: "Hotel lobby",
+        start: "Based on requested slot",
+        bestFor: "Short-distance local movement",
+        summary: "Convenient shuttle arrangement for hotel guest movement around Langkawi with timely pickup.",
+        includes: ["Scheduled shuttle transfer", "Comfortable vehicle", "Local route support", "WhatsApp coordination"],
+        excludes: ["Long-distance private charter", "Custom add-on routes", "Personal expenses"],
+        cover: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80"
+      },
+      "Langkawi City Tour": {
+        duration: "Half Day / Full Day",
+        suitable: "Family / Group",
+        slots: "Daily availability",
+        pickup: "Hotel pickup available",
+        start: "Flexible timing",
+        bestFor: "City highlights and shopping stops",
+        summary: "Comfortable city tour service with a planned route and flexible stop points around Langkawi.",
+        includes: ["Driver service", "Air-conditioned vehicle", "Flexible stop points", "Basic itinerary support"],
+        excludes: ["Attraction entrance tickets", "Meals", "Personal expenses"],
+        cover: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1200&q=80"
+      },
+      "Mangrove Boat Tour": {
+        duration: "Half Day",
+        suitable: "Nature Lovers",
+        slots: "Morning / Afternoon",
+        pickup: "Jetty or hotel arrangement",
+        start: "09:00 AM / 02:00 PM",
+        bestFor: "Nature and mangrove experience",
+        summary: "Discover Langkawi mangrove ecosystem with a guided boat route and scenic photo locations.",
+        includes: ["Boat tour", "Safety briefing", "Guide assistance", "Basic transfer support"],
+        excludes: ["Meals", "Travel insurance", "Optional activities"],
+        cover: "https://images.unsplash.com/photo-1540202404-a2f29016b523?auto=format&fit=crop&w=1200&q=80"
+      },
+      "ATV Tour": {
+        duration: "1-2 Hours",
+        suitable: "Adventure Travelers",
+        slots: "Multiple sessions daily",
+        pickup: "By arrangement",
+        start: "Flexible timing",
+        bestFor: "Off-road adventure",
+        summary: "Guided ATV ride across selected Langkawi routes for a fun and active outdoor experience.",
+        includes: ["ATV unit", "Safety briefing", "Guide", "Basic protective gear"],
+        excludes: ["Personal insurance", "Photos/video package", "Personal expenses"],
+        cover: "https://images.unsplash.com/photo-1522163182402-834f871fd851?auto=format&fit=crop&w=1200&q=80"
+      },
+      "Island Hopping": {
         duration: "1 Day",
         suitable: "Family / Couple",
         slots: "Only 20 slots/day",
@@ -2061,42 +2961,6 @@
         excludes: ["Personal lunch & dinner", "Travel insurance", "Personal expenses"],
         cover: "images/stack1.jpg"
       },
-      "1D Langkawi Mangrove + Kilim + ATV Adventure": {
-        duration: "1 Day",
-        suitable: "Adventure Group",
-        slots: "Limited daily slots",
-        pickup: "Pickup around Pantai Cenang",
-        start: "08:00 AM",
-        bestFor: "Nature + ATV experience",
-        summary: "A packed one-day nature and adventure combo with mangrove exploration and ATV excitement.",
-        includes: ["Kilim geoforest boat tour", "ATV basic track", "Experienced guide", "Mineral water & safety gear"],
-        excludes: ["Raincoat / extra outfit", "Lunch", "Optional add-on activities"],
-        cover: "images/stack2.jpg"
-      },
-      "1D SkyCab + SkyBridge + City Highlights Tour": {
-        duration: "1 Day",
-        suitable: "Family Friendly",
-        slots: "Daily departures",
-        pickup: "Hotel pickup included",
-        start: "09:30 AM",
-        bestFor: "Best of Langkawi highlights",
-        summary: "A complete one-day highlights tour for travelers who want to cover Langkawi's top attractions quickly.",
-        includes: ["SkyCab standard lane", "SkyBridge access", "Half-day city tour", "Round-trip hotel transfer"],
-        excludes: ["Fast lane / express queue", "Meals", "Souvenirs & extra entrance fees"],
-        cover: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80"
-      },
-      "1D Langkawi Romantic Couple Experience": {
-        duration: "1 Day",
-        suitable: "Couple / Honeymoon",
-        slots: "Max 12 couples/day",
-        pickup: "Private transfer",
-        start: "Flexible timing",
-        bestFor: "Romantic private moments",
-        summary: "A premium one-day romantic experience designed for couples who want memorable private moments in Langkawi.",
-        includes: ["Romantic dining setup", "Private pickup & transfer", "Photo-friendly itinerary", "Basic surprise deco"],
-        excludes: ["Professional photographer", "Premium flower arrangement", "Travel insurance"],
-        cover: "https://images.unsplash.com/photo-1516589091380-5d6012b1f85c?auto=format&fit=crop&w=1200&q=80"
-      }
     };
 
     const renderList = (element, items) => {
@@ -2125,7 +2989,7 @@
       };
 
       modalPackageTitle.textContent = title;
-      modalPackagePrice.textContent = `From ${price}`;
+      modalPackagePrice.textContent = String(price || "").startsWith("RM") ? `From ${price}` : String(price || "Price on request");
       modalPackageDetails.textContent = data.summary;
       modalBadgeDuration.textContent = data.duration;
       modalBadgeSuitable.textContent = data.suitable;
@@ -2137,7 +3001,6 @@
       renderList(modalExcludes, data.excludes);
       modalCover.style.background = `linear-gradient(120deg, rgba(11,94,166,0.62), rgba(17,138,104,0.55)), url("${data.cover}") center/cover no-repeat`;
       updateModalTimeOptions();
-      updateLivePrice();
       packageModal.classList.add("is-open");
       packageModal.setAttribute("aria-hidden", "false");
     };
@@ -2189,17 +3052,22 @@
 
         const paxCount = getPaxCount(pax);
         const unitPrice = getUnitPrice(activePrice);
+        const hasNumericPrice = unitPrice > 0;
         const totalPrice = unitPrice * paxCount;
-        const message = [
+        const messageLines = [
           "Hi MYKAZ SOLUTIONS, I want to book this package:",
           `Package: ${activePackage}`,
-          `Unit price: RM${unitPrice}`,
           `Date: ${date}`,
           `Time: ${time}`,
-          `No. of pax: ${pax}`,
-          `Estimated total: RM${totalPrice}`,
-          `Notes: ${notes}`
-        ].join("\n");
+          `No. of pax: ${pax}`
+        ];
+        if (hasNumericPrice) {
+          messageLines.push(`Unit price: RM${unitPrice}`);
+        } else {
+          messageLines.push(`Price: ${activePrice || "Price on request"}`);
+        }
+        messageLines.push(`Notes: ${notes}`);
+        const message = messageLines.join("\n");
 
         openWhatsApp(message);
         closePackageModal();
@@ -2232,7 +3100,7 @@
       if (bookDateEl && !bookDateEl.value) bookDateEl.value = fmt(today);
 
       const destinationEl = document.getElementById("bookDestination");
-      if (destinationEl && !destinationEl.value) destinationEl.value = "Pantai Cenang";
+      if (destinationEl && !destinationEl.value) destinationEl.value = "Langkawi city tour";
 
       const paxEl = document.getElementById("bookPax");
       if (paxEl && !paxEl.value) paxEl.value = "2";
@@ -2264,7 +3132,7 @@
         }
 
         const bookingMessage = [
-          "Hi MYKAZ SOLUTIONS, I would like to make a Langkawi package booking.",
+          "Hi MYKAZ SOLUTIONS, I would like to make a Langkawi service booking.",
           `Name: ${fields.name}`,
           `Phone: ${fields.phone}`,
           `Email: ${fields.email}`,
@@ -2343,13 +3211,6 @@
       }
     };
 
-    const updateLivePrice = () => {
-      if (!modalLivePrice) return;
-      const unit = getUnitPrice(activePrice);
-      const pax = getPaxCount(modalBookingPax?.value || "1 pax");
-      modalLivePrice.textContent = `Estimated total: RM${unit * pax} (RM${unit} x ${pax} pax)`;
-    };
-
     if (modalBookingTime && !modalBookingTime.value) modalBookingTime.value = getNearestTimeSlot();
     if (modalBookingPax && !modalBookingPax.value) modalBookingPax.value = "2 pax";
     if (modalBookingDate && !modalBookingDate.value) {
@@ -2360,9 +3221,7 @@
       modalBookingDate.addEventListener("change", updateModalTimeOptions);
     }
     if (modalBookingTime) modalBookingTime.addEventListener("change", updateModalTimeOptions);
-    if (modalBookingPax) modalBookingPax.addEventListener("change", updateLivePrice);
     updateModalTimeOptions();
-    updateLivePrice();
   </script>
 </body>
 </html>
